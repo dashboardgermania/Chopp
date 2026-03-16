@@ -7,222 +7,180 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --red:        #C92B1E;
-  --red-dk:     #9E2015;
-  --gold:       #E8960A;
-  --gold-lt:    #F5C040;
-  --beige:      #EFE3CC;
-  --beige-2:    #E6D5B5;
-  --cream:      #FAF5EE;
-  --white:      #FFFFFF;
-  --grafite:    #2A2A2A;
-  --txt-soft:   #7A6040;
-  --txt-faint:  #A89060;
-  --border:     rgba(160,120,60,0.13);
-
-  --bz-gold-txt:#7A5000;
-  --bz-gold-bg: #FFF3CC;
-  --bz-gold-bd: rgba(180,120,0,0.18);
-
-  --bz-neu-txt: #606060;
-  --bz-neu-bg:  #F2F2F2;
-  --bz-neu-bd:  rgba(120,120,120,0.18);
-
-  --c-green:    #1A6B3A;
-  --bg-green:   #E8F5EE;
-  --bd-green:   rgba(26,107,58,0.22);
-  --c-yellow:   #7A5500;
-  --bg-yellow:  #FFF8E0;
-  --bd-yellow:  rgba(180,130,0,0.22);
-  --c-red:      #B02018;
-  --bg-red:     #FDECEA;
-  --bd-red:     rgba(176,32,24,0.20);
-  --c-gray:     #707070;
-
-  --shadow:     0 1px 4px rgba(26,18,6,0.07), 0 2px 10px rgba(26,18,6,0.04);
-  --shadow-md:  0 6px 24px rgba(26,18,6,0.13);
-  --radius:     8px;
-  --mw:         1680px;
-  --card-pad:   20px 22px 18px;
+  --red:       #C92B1E;
+  --red-dk:    #9E2015;
+  --gold:      #E8960A;
+  --gold-lt:   #F5C040;
+  --beige:     #EFE3CC;
+  --beige-2:   #E6D5B5;
+  --cream:     #FAF5EE;
+  --white:     #FFFFFF;
+  --grafite:   #2A2A2A;
+  --txt-soft:  #7A6040;
+  --txt-faint: #A89060;
+  --border:    rgba(160,120,60,0.13);
+  --bz-gold-txt:#7A5000; --bz-gold-bg:#FFF3CC; --bz-gold-bd:rgba(180,120,0,0.18);
+  --bz-neu-txt: #606060; --bz-neu-bg: #F2F2F2; --bz-neu-bd: rgba(120,120,120,0.18);
+  --c-green:   #1A6B3A; --bg-green:#E8F5EE; --bd-green:rgba(26,107,58,0.22);
+  --c-yellow:  #7A5500; --bg-yellow:#FFF8E0; --bd-yellow:rgba(180,130,0,0.22);
+  --c-red:     #B02018; --bg-red:#FDECEA;   --bd-red:rgba(176,32,24,0.20);
+  --c-gray:    #AAAAAA;
+  --shadow:    0 1px 4px rgba(26,18,6,0.07), 0 2px 10px rgba(26,18,6,0.04);
+  --shadow-md: 0 8px 28px rgba(26,18,6,0.13);
+  --radius:    8px; --mw:1680px;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Barlow',sans-serif; background:var(--beige); color:var(--grafite); min-height:100vh; }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Barlow',sans-serif;background:var(--beige);color:var(--grafite);min-height:100vh;}
 
 /* ─── HEADER ─── */
-.header { background:linear-gradient(150deg,#B82218 0%,#C92B1E 55%,#C42820 100%); position:relative; overflow:hidden; }
-.header::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 85% 50%,rgba(245,192,64,0.10) 0%,transparent 55%); pointer-events:none; }
-.header-inner { display:flex; align-items:center; gap:20px; max-width:var(--mw); margin:0 auto; padding:20px 40px; position:relative; z-index:1; }
-.h-logo { width:64px; height:64px; flex-shrink:0; }
-.h-logo img { width:64px; height:64px; object-fit:contain; }
-.h-div { width:1px; height:52px; background:rgba(255,255,255,0.12); flex-shrink:0; }
-.h-brand { flex-shrink:0; }
-.h-brand .eyebrow { font-family:'Barlow Condensed',sans-serif; font-size:9px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:5px; }
-.h-brand h1 { font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:900; letter-spacing:1.5px; text-transform:uppercase; line-height:1; color:var(--white); }
-.h-brand h1 em { color:var(--gold-lt); font-style:normal; }
-.h-brand .sub { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:400; letter-spacing:1px; color:rgba(255,255,255,0.30); margin-top:5px; }
-.h-kpis { display:flex; gap:10px; margin-left:auto; }
-.hk { background:rgba(0,0,0,0.20); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:12px 22px; text-align:center; min-width:130px; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; }
-.hk::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; border-radius:0 0 var(--radius) var(--radius); }
-.hk.hk-up::after   { background:var(--c-green); opacity:0.8; }
-.hk.hk-down::after { background:var(--c-red); opacity:0.8; }
-.hk.hk-warn::after { background:#D4A000; opacity:0.8; }
-.hk.hk-neu::after  { background:rgba(255,255,255,0.12); }
-.hk-l { font-family:'Barlow Condensed',sans-serif; font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:4px; }
-.hk-v { font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:900; color:var(--gold-lt); line-height:1; margin-bottom:3px; }
-.hk-v .u { font-size:13px; opacity:0.7; font-weight:600; }
-.hk-trend { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:600; }
-.hk-trend.up   { color:rgba(120,220,140,0.85); }
-.hk-trend.down { color:rgba(255,130,120,0.85); }
-.hk-trend.warn { color:rgba(255,210,80,0.85); }
-.hk-trend.neu  { color:rgba(255,255,255,0.30); }
-.accent-bar { height:3px; background:linear-gradient(90deg,var(--red-dk) 0%,var(--gold) 25%,var(--gold-lt) 50%,var(--gold) 75%,var(--red-dk) 100%); }
+.header{background:linear-gradient(150deg,#B82218 0%,#C92B1E 55%,#C42820 100%);position:relative;overflow:hidden;}
+.header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 85% 50%,rgba(245,192,64,0.10) 0%,transparent 55%);pointer-events:none;}
+.header-inner{display:flex;align-items:center;gap:20px;max-width:var(--mw);margin:0 auto;padding:20px 40px;position:relative;z-index:1;}
+.h-logo{width:64px;height:64px;flex-shrink:0;}
+.h-logo img{width:64px;height:64px;object-fit:contain;}
+.h-div{width:1px;height:52px;background:rgba(255,255,255,0.12);flex-shrink:0;}
+.h-brand{flex-shrink:0;}
+.h-brand .eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:5px;}
+.h-brand h1{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;line-height:1;color:var(--white);}
+.h-brand h1 em{color:var(--gold-lt);font-style:normal;}
+.h-brand .sub{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:400;letter-spacing:1px;color:rgba(255,255,255,0.30);margin-top:5px;}
+.h-kpis{display:flex;gap:10px;margin-left:auto;}
+.hk{background:rgba(0,0,0,0.20);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:12px 22px;text-align:center;min-width:130px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;transition:background 0.2s;}
+.hk:hover{background:rgba(0,0,0,0.30);}
+.hk::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;border-radius:0 0 var(--radius) var(--radius);}
+.hk.hk-up::after{background:var(--c-green);opacity:0.8;}
+.hk.hk-down::after{background:var(--c-red);opacity:0.8;}
+.hk.hk-warn::after{background:#D4A000;opacity:0.8;}
+.hk.hk-neu::after{background:rgba(255,255,255,0.12);}
+.hk-l{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:4px;}
+.hk-v{font-family:'Barlow Condensed',sans-serif;font-size:30px;font-weight:900;color:var(--gold-lt);line-height:1;margin-bottom:3px;transition:transform 0.2s;}
+.hk:hover .hk-v{transform:scale(1.04);}
+.hk-v .u{font-size:13px;opacity:0.7;font-weight:600;}
+.hk-trend{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:600;}
+.hk-trend.up{color:rgba(120,220,140,0.85);} .hk-trend.down{color:rgba(255,130,120,0.85);}
+.hk-trend.warn{color:rgba(255,210,80,0.85);} .hk-trend.neu{color:rgba(255,255,255,0.30);}
+.accent-bar{height:3px;background:linear-gradient(90deg,var(--red-dk) 0%,var(--gold) 25%,var(--gold-lt) 50%,var(--gold) 75%,var(--red-dk) 100%);}
 
 /* ─── FILTROS ─── */
-.filters-wrap { background:var(--cream); border-bottom:1px solid var(--border); box-shadow:0 1px 5px rgba(26,18,6,0.05); }
-.filters { max-width:var(--mw); margin:0 auto; padding:10px 40px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
-.f-group { display:flex; align-items:center; gap:7px; }
-.f-label { font-family:'Barlow Condensed',sans-serif; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--txt-faint); white-space:nowrap; }
-.f-input,.f-select { font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:600; color:var(--grafite); background:var(--white); border:1px solid var(--border); border-radius:6px; padding:5px 10px; outline:none; transition:border-color 0.15s; }
-.f-input:focus,.f-select:focus { border-color:var(--gold); }
-.f-sep { color:var(--txt-faint); font-size:10px; }
-.btn-filter { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; background:var(--red); color:var(--white); border:none; border-radius:6px; padding:6px 16px; cursor:pointer; transition:background 0.15s; }
-.btn-filter:hover { background:var(--red-dk); }
-.btn-clear { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; background:transparent; color:var(--txt-soft); border:1px solid var(--border); border-radius:6px; padding:5px 12px; cursor:pointer; }
-.f-updated { margin-left:auto; font-family:'Barlow Condensed',sans-serif; font-size:9px; letter-spacing:1px; color:var(--txt-faint); font-style:italic; }
+.filters-wrap{background:var(--cream);border-bottom:1px solid var(--border);box-shadow:0 1px 5px rgba(26,18,6,0.05);}
+.filters{max-width:var(--mw);margin:0 auto;padding:10px 40px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.f-group{display:flex;align-items:center;gap:7px;}
+.f-label{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--txt-faint);white-space:nowrap;}
+.f-input,.f-select{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:600;color:var(--grafite);background:var(--white);border:1px solid var(--border);border-radius:6px;padding:5px 10px;outline:none;transition:border-color 0.15s,box-shadow 0.15s;}
+.f-input:focus,.f-select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(232,150,10,0.10);}
+.f-sep{color:var(--txt-faint);font-size:10px;}
+.btn-filter{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:var(--red);color:var(--white);border:none;border-radius:6px;padding:6px 16px;cursor:pointer;transition:background 0.15s,transform 0.1s;}
+.btn-filter:hover{background:var(--red-dk);transform:translateY(-1px);}
+.btn-filter:active{transform:translateY(0);}
+.btn-clear{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:transparent;color:var(--txt-soft);border:1px solid var(--border);border-radius:6px;padding:5px 12px;cursor:pointer;transition:all 0.15s;}
+.btn-clear:hover{border-color:var(--txt-soft);color:var(--grafite);}
+.f-updated{margin-left:auto;font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:1px;color:var(--txt-faint);font-style:italic;}
 
 /* ─── MAIN ─── */
-.main { max-width:var(--mw); margin:0 auto; padding:20px 40px 48px; }
-.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:14px; }
+.main{max-width:var(--mw);margin:0 auto;padding:20px 40px 48px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;}
 
 /* ─── CARD ─── */
-.card {
-  background:var(--white);
-  border-radius:var(--radius);
-  overflow:hidden;
-  box-shadow:var(--shadow);
-  border:1px solid var(--border);
-  transition:box-shadow 0.2s, transform 0.2s;
-  display:flex; flex-direction:column;
+.card{
+  background:var(--white);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--border);
+  transition:box-shadow 0.25s,transform 0.25s;
+  display:flex;flex-direction:column;
 }
-.card:hover { box-shadow:var(--shadow-md); transform:translateY(-2px); }
-.card.bg-cream { background:var(--cream); }
-.card.blank { background:rgba(239,227,204,0.35); border:1.5px dashed rgba(138,110,60,0.22); box-shadow:none; }
-.card.blank:hover { transform:none; box-shadow:none; }
+.card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);}
+.card.bg-cream{background:var(--cream);}
+.card.blank{background:rgba(239,227,204,0.35);border:1.5px dashed rgba(138,110,60,0.22);box-shadow:none;}
+.card.blank:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(26,18,6,0.06);}
 
-/* Topo colorido */
-.card-top { height:3px; width:100%; flex-shrink:0; transition:height 0.2s, background 0.3s; background:var(--beige-2); }
-.card:hover .card-top { height:4px; }
+/* Topo */
+.card-top{height:3px;width:100%;flex-shrink:0;transition:height 0.25s,background 0.3s;background:var(--beige-2);}
+.card:hover .card-top{height:5px;}
 
-/* Body — padding uniforme */
-.card-body {
-  padding:var(--card-pad);
-  display:flex; flex-direction:column;
-  flex:1;
+/* Body */
+.card-body{
+  padding:16px 18px 16px;
+  display:flex;flex-direction:column;flex:1;
 }
 
 /* Título */
-.c-title {
+.c-title{
   font-family:'Barlow Condensed',sans-serif;
-  font-size:15px; font-weight:600; letter-spacing:1px;
-  text-transform:uppercase; color:var(--grafite);
-  margin-bottom:4px;
+  font-size:15px;font-weight:600;letter-spacing:1px;
+  text-transform:uppercase;color:var(--grafite);
+  margin-bottom:3px;
 }
 /* Subtítulo */
-.c-sub {
-  font-size:12px; font-weight:400; color:var(--txt-faint);
-  line-height:1.4; margin-bottom:14px;
+.c-sub{
+  font-size:12px;font-weight:400;color:var(--txt-faint);
+  line-height:1.4;margin-bottom:12px;
 }
-/* Resultado — único bold pesado */
-.c-val {
+
+/* ─── LINHA PRINCIPAL: valor + círculo ─── */
+.c-main{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
+}
+.c-val{
   font-family:'Barlow Condensed',sans-serif;
-  font-size:52px; font-weight:900;
-  color:var(--grafite); line-height:1;
-  margin-bottom:14px;
+  font-size:52px;font-weight:900;
+  color:var(--grafite);line-height:1;
+  transition:transform 0.2s;
 }
-.c-val .u { font-family:'Barlow',sans-serif; font-size:18px; font-weight:400; color:var(--txt-soft); }
-.c-val.faint { color:var(--beige-2); font-size:24px; letter-spacing:6px; font-weight:400; }
+.card:hover .c-val{transform:scale(1.02);transform-origin:left center;}
+.c-val .u{font-family:'Barlow',sans-serif;font-size:18px;font-weight:400;color:var(--txt-soft);}
+.c-val.faint{color:var(--beige-2);font-size:24px;letter-spacing:6px;font-weight:400;}
+
+/* Círculo SVG */
+.c-circle{flex-shrink:0;cursor:default;}
+.c-circle svg{display:block;transition:transform 0.25s;}
+.c-circle:hover svg{transform:scale(1.08);}
+.circle-bg{fill:none;stroke:rgba(160,120,60,0.10);}
+.circle-fill{
+  fill:none;stroke-linecap:round;
+  transform:rotate(-90deg);transform-origin:50% 50%;
+  transition:stroke-dashoffset 0.8s cubic-bezier(0.4,0,0.2,1), stroke 0.4s;
+}
+.circle-txt{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:800;text-anchor:middle;dominant-baseline:central;
+  transition:fill 0.3s;
+}
 
 /* Bezel */
-.bezel {
-  display:inline-flex; align-items:center; gap:4px;
-  border-radius:20px; padding:4px 12px;
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:12px; font-weight:500;
+.bezel{
+  display:inline-flex;align-items:center;gap:4px;
+  border-radius:20px;padding:4px 12px;
+  font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:500;
   border:1px solid transparent;
-  margin-bottom:10px;
+  margin-bottom:0;align-self:flex-start;
   cursor:default;
-  transition:filter 0.2s, box-shadow 0.2s, padding 0.2s;
-  align-self:flex-start;
+  transition:filter 0.2s,box-shadow 0.2s,padding 0.15s,transform 0.15s;
 }
-.bezel:hover {
-  filter:brightness(0.94);
-  box-shadow:0 2px 8px rgba(0,0,0,0.10);
-  padding:4px 14px;
-}
-.bezel.gold {
-  background:var(--bz-gold-bg); color:var(--bz-gold-txt);
-  border-color:var(--bz-gold-bd);
-}
-.bezel.neu {
-  background:var(--bz-neu-bg); color:var(--bz-neu-txt);
-  border-color:var(--bz-neu-bd);
-}
-
-/* Barra de progresso */
-.prog-wrap {
-  display:flex; align-items:center; gap:8px;
-  margin-top:auto; padding-top:6px;
-}
-.prog-bar-bg {
-  flex:1; height:4px; border-radius:3px;
-  background:rgba(160,120,60,0.10); overflow:hidden;
-  cursor:pointer;
-  transition:height 0.2s;
-  position:relative;
-}
-.prog-bar-bg:hover { height:7px; }
-.prog-bar-fill {
-  height:100%; border-radius:3px;
-  transition:width 0.6s ease, background 0.3s;
-  max-width:100%;
-}
-.prog-bar-bg:hover .prog-bar-fill {
-  filter:brightness(1.1);
-}
-/* Tooltip na barra */
-.prog-bar-bg::after {
-  content: attr(data-tip);
-  position:absolute;
-  bottom:calc(100% + 6px); left:50%; transform:translateX(-50%);
-  background:var(--grafite); color:var(--white);
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:10px; font-weight:600; letter-spacing:0.5px;
-  padding:3px 8px; border-radius:4px;
-  white-space:nowrap; pointer-events:none;
-  opacity:0; transition:opacity 0.15s;
-}
-.prog-bar-bg:hover::after { opacity:1; }
-
-.prog-pct {
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:11px; font-weight:700;
-  min-width:34px; text-align:right;
-  color:var(--txt-faint);
-  transition:color 0.2s;
-}
+.bezel:hover{filter:brightness(0.92);box-shadow:0 2px 8px rgba(0,0,0,0.10);padding:4px 15px;transform:translateY(-1px);}
+.bezel.gold{background:var(--bz-gold-bg);color:var(--bz-gold-txt);border-color:var(--bz-gold-bd);}
+.bezel.neu{background:var(--bz-neu-bg);color:var(--bz-neu-txt);border-color:var(--bz-neu-bd);}
 
 /* CSAT */
-.csat-ph {
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  min-height:52px; margin-top:auto; gap:3px;
+.csat-ph{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-height:80px;margin-top:auto;gap:3px;
   background:repeating-linear-gradient(-45deg,transparent,transparent 8px,rgba(138,110,60,0.04) 8px,rgba(138,110,60,0.04) 16px);
-  border-radius:6px; border:1px dashed rgba(138,110,60,0.18);
+  border-radius:6px;border:1px dashed rgba(138,110,60,0.18);
 }
-.csat-ph span { font-family:'Barlow Condensed',sans-serif; font-size:16px; font-weight:900; color:var(--beige-2); letter-spacing:5px; }
-.csat-ph small { font-size:10px; color:var(--txt-faint); font-style:italic; }
+.csat-ph span{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;color:var(--beige-2);letter-spacing:5px;}
+.csat-ph small{font-size:10px;color:var(--txt-faint);font-style:italic;}
 
-.footer { text-align:right; padding:0 40px 36px; max-width:var(--mw); margin:0 auto; }
-.footer span { font-family:'Barlow Condensed',sans-serif; font-size:9px; color:var(--txt-faint); letter-spacing:1.5px; text-transform:uppercase; }
+/* Animação entrada cards */
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+.card{animation:fadeUp 0.4s ease both;}
+.grid-3 .card:nth-child(1){animation-delay:0.05s;}
+.grid-3 .card:nth-child(2){animation-delay:0.10s;}
+.grid-3 .card:nth-child(3){animation-delay:0.15s;}
+
+.footer{text-align:right;padding:0 40px 36px;max-width:var(--mw);margin:0 auto;}
+.footer span{font-family:'Barlow Condensed',sans-serif;font-size:9px;color:var(--txt-faint);letter-spacing:1.5px;text-transform:uppercase;}
 
 @media(max-width:1100px){
   .grid-3{grid-template-columns:repeat(2,1fr);}
@@ -240,7 +198,7 @@ body { font-family:'Barlow',sans-serif; background:var(--beige); color:var(--gra
     <div class="h-brand">
       <div class="eyebrow">Germânia · Cervejaria · Dashboard Comercial</div>
       <h1><em>CHOPP</em> | LIG CHOPP GERMÂNIA</h1>
-      <div class="sub" id="header-sub">Período: fev. de 2026 · 708 atendimentos</div>
+      <div class="sub" id="header-sub">Período: fev. de 2026</div>
     </div>
     <div class="h-kpis">
       <div class="hk hk-neu" id="hk-lit"><div class="hk-l">Litros</div><div class="hk-v" id="hv-lit">—</div><div class="hk-trend neu" id="ht-lit">—</div></div>
@@ -284,161 +242,122 @@ body { font-family:'Barlow',sans-serif; background:var(--beige); color:var(--gra
 
   <!-- L1 -->
   <div class="grid-3">
-
-    <div class="card">
-      <div class="card-top" id="ct-alc"></div>
+    <div class="card blank">
+      <div class="card-top" style="background:transparent;"></div>
       <div class="card-body">
         <div class="c-title">Alcance</div>
         <div class="c-sub">Total de leads captados no período</div>
-        <div class="c-val" id="v-alc">9.632</div>
-        <span class="bezel neu" id="bz-alc">— conv. sobre alcance</span>
-        <div class="prog-wrap">
-          <div class="prog-bar-bg" id="pb-alc-bg" data-tip="—">
-            <div class="prog-bar-fill" id="pb-alc" style="width:0%;"></div>
-          </div>
-          <span class="prog-pct" id="pp-alc">—</span>
+        <div class="c-main">
+          <div class="c-val faint" id="v-alc">9.632</div>
+          <div class="c-circle" id="cc-alc"></div>
         </div>
+        <span class="bezel neu" id="bz-alc">— conv. alc→atend</span>
       </div>
     </div>
-
     <div class="card">
       <div class="card-top" id="ct-atend"></div>
       <div class="card-body">
         <div class="c-title">Atendimento</div>
         <div class="c-sub">Total de atendimentos únicos no canal</div>
-        <div class="c-val" id="v-atend">—</div>
-        <span class="bezel gold" id="bz-atend">—</span>
-        <div class="prog-wrap">
-          <div class="prog-bar-bg" id="pb-atend-bg" data-tip="—">
-            <div class="prog-bar-fill" id="pb-atend" style="width:0%;"></div>
-          </div>
-          <span class="prog-pct" id="pp-atend">—</span>
+        <div class="c-main">
+          <div class="c-val" id="v-atend">—</div>
+          <div class="c-circle" id="cc-atend"></div>
         </div>
+        <span class="bezel gold" id="bz-atend">—</span>
       </div>
     </div>
-
     <div class="card">
       <div class="card-top" id="ct-orc"></div>
       <div class="card-body">
         <div class="c-title">Orçamentos</div>
         <div class="c-sub">Proposta Comercial + etapas seguintes</div>
-        <div class="c-val" id="v-orc">—</div>
-        <span class="bezel gold" id="bz-orc">—</span>
-        <div class="prog-wrap">
-          <div class="prog-bar-bg" id="pb-orc-bg" data-tip="—">
-            <div class="prog-bar-fill" id="pb-orc" style="width:0%;"></div>
-          </div>
-          <span class="prog-pct" id="pp-orc">—</span>
+        <div class="c-main">
+          <div class="c-val" id="v-orc">—</div>
+          <div class="c-circle" id="cc-orc"></div>
         </div>
+        <span class="bezel gold" id="bz-orc">—</span>
       </div>
     </div>
-
   </div>
 
   <!-- L2 -->
   <div class="grid-3">
-
     <div class="card">
       <div class="card-top" id="ct-ped"></div>
       <div class="card-body">
         <div class="c-title">Pedidos</div>
         <div class="c-sub">Deals fechados no período</div>
-        <div class="c-val" id="v-ped">—</div>
-        <span class="bezel gold" id="bz-ped">—</span>
-        <div class="prog-wrap">
-          <div class="prog-bar-bg" id="pb-ped-bg" data-tip="—">
-            <div class="prog-bar-fill" id="pb-ped" style="width:0%;"></div>
-          </div>
-          <span class="prog-pct" id="pp-ped">—</span>
+        <div class="c-main">
+          <div class="c-val" id="v-ped">—</div>
+          <div class="c-circle" id="cc-ped"></div>
         </div>
+        <span class="bezel gold" id="bz-ped">—</span>
       </div>
     </div>
-
     <div class="card">
       <div class="card-top" id="ct-lit"></div>
       <div class="card-body">
         <div class="c-title">Litros</div>
         <div class="c-sub">Volume total vendido no período</div>
-        <div class="c-val" id="v-lit">—</div>
-        <span class="bezel neu" id="bz-lit">—</span>
-        <div class="prog-wrap">
-          <div class="prog-bar-bg" id="pb-lit-bg" data-tip="—">
-            <div class="prog-bar-fill" id="pb-lit" style="width:0%;"></div>
-          </div>
-          <span class="prog-pct" id="pp-lit">—</span>
+        <div class="c-main">
+          <div class="c-val" id="v-lit">—</div>
+          <div class="c-circle" id="cc-lit"></div>
         </div>
+        <span class="bezel neu" id="bz-lit">—</span>
       </div>
     </div>
-
     <div class="card">
       <div class="card-top" id="ct-rec"></div>
       <div class="card-body">
         <div class="c-title">Receita</div>
         <div class="c-sub">Faturamento total do período</div>
-        <div class="c-val" id="v-rec" style="font-size:40px;">—</div>
-        <span class="bezel neu" id="bz-rec">—</span>
-        <div class="prog-wrap">
-          <div class="prog-bar-bg" id="pb-rec-bg" data-tip="—">
-            <div class="prog-bar-fill" id="pb-rec" style="width:0%;"></div>
-          </div>
-          <span class="prog-pct" id="pp-rec">—</span>
+        <div class="c-main">
+          <div class="c-val" id="v-rec" style="font-size:40px;">—</div>
+          <div class="c-circle" id="cc-rec"></div>
         </div>
+        <span class="bezel neu" id="bz-rec">—</span>
       </div>
     </div>
-
   </div>
 
   <!-- L3 -->
   <div class="grid-3">
-
     <div class="card">
       <div class="card-top" style="background:var(--beige-2);"></div>
       <div class="card-body">
         <div class="c-title">Ticket Médio por Pedido</div>
         <div class="c-sub">Receita ÷ pedidos fechados</div>
-        <div class="c-val" id="v-tm-ped" style="font-size:46px;">—</div>
-        <span class="bezel neu" id="bz-tm-ped">—</span>
-        <div class="prog-wrap">
-          <div class="prog-bar-bg" id="pb-tm-ped-bg" data-tip="—">
-            <div class="prog-bar-fill" id="pb-tm-ped" style="width:0%;background:var(--beige-2);"></div>
-          </div>
-          <span class="prog-pct" id="pp-tm-ped">—</span>
+        <div class="c-main">
+          <div class="c-val" id="v-tm-ped" style="font-size:44px;">—</div>
+          <div class="c-circle" id="cc-tm-ped"></div>
         </div>
+        <span class="bezel neu" id="bz-tm-ped">—</span>
       </div>
     </div>
-
     <div class="card">
       <div class="card-top" style="background:var(--beige-2);"></div>
       <div class="card-body">
         <div class="c-title">Ticket Médio por Litros</div>
         <div class="c-sub">Volume médio por evento</div>
-        <div class="c-val" id="v-tm-lit" style="font-size:46px;">—</div>
-        <span class="bezel neu" id="bz-tm-lit">—</span>
-        <div class="prog-wrap">
-          <div class="prog-bar-bg" id="pb-tm-lit-bg" data-tip="—">
-            <div class="prog-bar-fill" id="pb-tm-lit" style="width:0%;background:var(--beige-2);"></div>
-          </div>
-          <span class="prog-pct" id="pp-tm-lit">—</span>
+        <div class="c-main">
+          <div class="c-val" id="v-tm-lit" style="font-size:44px;">—</div>
+          <div class="c-circle" id="cc-tm-lit"></div>
         </div>
+        <span class="bezel neu" id="bz-tm-lit">—</span>
       </div>
     </div>
-
     <div class="card">
       <div class="card-top" style="background:var(--beige-2);"></div>
       <div class="card-body">
         <div class="c-title">Receita por Litro</div>
         <div class="c-sub">Yield médio de faturamento</div>
-        <div class="c-val" id="v-rec-lit" style="font-size:46px;">—</div>
-        <span class="bezel neu" id="bz-rec-lit">—</span>
-        <div class="prog-wrap">
-          <div class="prog-bar-bg" id="pb-rec-lit-bg" data-tip="—">
-            <div class="prog-bar-fill" id="pb-rec-lit" style="width:0%;background:var(--beige-2);"></div>
-          </div>
-          <span class="prog-pct" id="pp-rec-lit">—</span>
+        <div class="c-main">
+          <div class="c-val" id="v-rec-lit" style="font-size:44px;">—</div>
+          <div class="c-circle" id="cc-rec-lit"></div>
         </div>
+        <span class="bezel neu" id="bz-rec-lit">—</span>
       </div>
     </div>
-
   </div>
 
   <!-- L4 CSAT -->
@@ -480,65 +399,96 @@ const RD   = [{"Resp": "Raiza", "Estado": "Em Andamento", "Etapa": "Proposta Com
 const EZ   = [{"Agente": "Mirian", "Nome do Departamento": "Vendas", "DataStr": "2026-02-02"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-03"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-03"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-04"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-04"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-10"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-14"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-14"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-15"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-15"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-21"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-21"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-22"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-22"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-27"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-27"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-03-03"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-02"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-03"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-03"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-03"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-03"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-03"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-03"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-03"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-03"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-03"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-03"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-03"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-03"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-03"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-04"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-04"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-04"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-04"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-04"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-04"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-04"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-04"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-04"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-04"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-04"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-04"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-05"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-05"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-06"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-05"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-05"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-06"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-06"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-06"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-06"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-06"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-06"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-06"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-06"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-06"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-07"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-09"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-08"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-09"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-09"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-09"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-09"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-09"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-09"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-09"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-09"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-09"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-10"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-10"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-10"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-11"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-11"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-12"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-12"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-12"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-12"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-12"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-12"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-12"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-12"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-12"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-12"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-12"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-13"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-13"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-13"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-13"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-13"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-13"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-13"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-14"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-14"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-14"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-14"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-14"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-14"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-14"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-14"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-14"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-14"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-15"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-15"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-15"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-15"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-15"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-15"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-15"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-17"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-16"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-17"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-17"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-17"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-17"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-17"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-17"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-03"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-19"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-18"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-20"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-19"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-19"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-19"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-19"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-20"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-19"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-20"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-19"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-20"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-20"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-19"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-19"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-19"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-20"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-19"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-19"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-21"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-03"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-11"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-20"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-21"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-21"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-20"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-21"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-21"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-21"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-21"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-21"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-21"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-21"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-21"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-21"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-21"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-21"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-22"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-03-03"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-22"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-22"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-22"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-22"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-22"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-22"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-22"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-03"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Marciano", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Marciano", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-03"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-03-03"}, {"Agente": "Marciano", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Marciano", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Marciano", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Marciano", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-23"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-03"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-03-03"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-25"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-24"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-24"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-04"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-25"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-26"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-26"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-26"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-27"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-26"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-27"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-27"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-26"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-27"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-03-03"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-03"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-26"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-27"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-27"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-27"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-27"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-27"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-27"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-02-27"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-27"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-05"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-03-02"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "L\u00eddia", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-03-02"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Mirian", "Nome do Departamento": "Sua Casa Nosso Bar", "DataStr": "2026-03-02"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Taciana", "Nome do Departamento": "Vendas", "DataStr": "2026-03-02"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}, {"Agente": "Raiza", "Nome do Departamento": "Vendas", "DataStr": "2026-02-28"}];
 const PART = {"L\u00eddia": 0.33136094674556216, "Raiza": 0.3136094674556213, "Taciana": 0.35502958579881655};
 const METAS = { orc:750, lit:8208, rec:140605.85, ped:169 };
+const REF   = { tmPed:864, tmLit:63.5, recLit:13.61 };
 const ALCANCE_FIXO = 9632;
-// Referências históricas para L3 (mês inteiro fev/26)
-const REF = { tmPed:864, tmLit:63.5, recLit:13.61 };
 const etapasOrc = ['Proposta Comercial','Cadastro Pedido','Logística / Entrega','Pós Venda e Fidelização'];
-const BAR_COLORS = { green:'var(--c-green)', yellow:'#D4A000', red:'var(--c-red)', gray:'#BBBBBB' };
 
-function diasNoPeriodo(de,ate) {
-  return Math.max(1, Math.round((new Date(ate)-new Date(de))/86400000)+1);
+const COLORS = {
+  green:'#1A6B3A', yellow:'#D4A000', red:'#B02018', gray:'#CCBBAA'
+};
+const TOP_COLORS = {
+  green:'var(--c-green)', yellow:'#D4A000', red:'var(--c-red)', gray:'var(--beige-2)'
+};
+
+// ─── CÍRCULO SVG ───
+const R = 28, CX = 34, CY = 34, SIZE = 68;
+const CIRC = 2 * Math.PI * R;
+
+function makeCircle(elId, pct, color, label) {
+  const el = document.getElementById(elId);
+  if (!el) return;
+  const clampedPct = Math.min(pct, 100);
+  const offset = CIRC - (clampedPct / 100) * CIRC;
+  const fontSize = label.length > 4 ? '9' : '10';
+  el.innerHTML = `
+    <svg width="${SIZE}" height="${SIZE}" viewBox="0 0 ${SIZE} ${SIZE}">
+      <circle class="circle-bg" cx="${CX}" cy="${CY}" r="${R}" stroke-width="5"/>
+      <circle class="circle-fill" cx="${CX}" cy="${CY}" r="${R}"
+        stroke="${color}" stroke-width="5"
+        stroke-dasharray="${CIRC}"
+        stroke-dashoffset="${CIRC}"
+        style="transition:stroke-dashoffset 0.9s cubic-bezier(0.4,0,0.2,1);"/>
+      <text class="circle-txt" x="${CX}" y="${CY}"
+        font-size="${fontSize}" fill="${color}">${label}</text>
+    </svg>`;
+  // Anima após render
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const fill = el.querySelector('.circle-fill');
+      if (fill) fill.style.strokeDashoffset = offset;
+    });
+  });
 }
-function metaProRata(metaTotal,de,ate,resp) {
+
+function statusMeta(real, mr) {
+  if (!mr) return 'gray';
+  const p = (real / mr) * 100;
+  return p >= 100 ? 'green' : p >= 70 ? 'yellow' : 'red';
+}
+
+function pctLabel(real, mr) {
+  if (!mr) return '—';
+  return Math.round((real / mr) * 100) + '%';
+}
+
+function setCardTop(id, status) {
+  const el = document.getElementById(id);
+  if (el) el.style.background = TOP_COLORS[status] || TOP_COLORS.gray;
+}
+
+function setHKpi(boxId, valId, trendId, val, mr, fmtFn) {
+  const box = document.getElementById(boxId);
+  const vEl = document.getElementById(valId);
+  const tEl = document.getElementById(trendId);
+  if (!vEl || !tEl || !box) return;
+  vEl.innerHTML = fmtFn(val);
+  const s = mr ? statusMeta(val, mr) : 'neu';
+  const diff = mr ? ((val / mr - 1) * 100) : 0;
+  const sign = diff >= 0 ? '+' : '';
+  const cls = {green:'up',yellow:'warn',red:'down',neu:'neu',gray:'neu'};
+  const arrows = {green:'▲',yellow:'▼',red:'▼',neu:'—',gray:'→'};
+  tEl.className = `hk-trend ${cls[s] || 'neu'}`;
+  tEl.textContent = mr ? `${arrows[s]} ${sign}${Math.abs(diff).toFixed(1)}% vs meta` : '—';
+  box.className = `hk hk-${s==='green'?'up':s==='yellow'?'warn':s==='red'?'down':'neu'}`;
+}
+
+function metaProRata(metaTotal, de, ate, resp) {
   let meta = metaTotal;
-  if(resp && PART[resp]) meta = metaTotal * PART[resp];
+  if (resp && PART[resp]) meta = metaTotal * PART[resp];
   const hoje = new Date();
   const inicio = new Date(de), fim = new Date(ate);
-  const dp = Math.max(1,Math.round((fim-inicio)/86400000)+1);
-  const fe = fim<hoje?fim:hoje;
-  const pp = Math.max(1,Math.round((fe-inicio)/86400000)+1);
-  return meta*(pp/dp);
+  const dp = Math.max(1, Math.round((fim - inicio) / 86400000) + 1);
+  const fe = fim < hoje ? fim : hoje;
+  const pp = Math.max(1, Math.round((fe - inicio) / 86400000) + 1);
+  return meta * (pp / dp);
 }
-function statusMeta(real,mr) {
-  if(!mr) return 'gray';
-  const p=(real/mr)*100;
-  return p>=100?'green':p>=70?'yellow':'red';
+
+function diasNoPeriodo(de, ate) {
+  return Math.max(1, Math.round((new Date(ate) - new Date(de)) / 86400000) + 1);
 }
-function setProgress(barId,bgId,pctId,real,mr,tipFn) {
-  const bar=document.getElementById(barId);
-  const bg=document.getElementById(bgId);
-  const pct=document.getElementById(pctId);
-  if(!bar||!pct) return;
-  if(!mr) { bar.style.width='0%'; pct.textContent='—'; if(bg) bg.setAttribute('data-tip','—'); return; }
-  const s=statusMeta(real,mr);
-  const p=Math.min(100,(real/mr)*100);
-  bar.style.width=p.toFixed(1)+'%';
-  bar.style.background=BAR_COLORS[s];
-  pct.style.color=BAR_COLORS[s];
-  pct.textContent=p.toFixed(0)+'%';
-  if(bg && tipFn) bg.setAttribute('data-tip', tipFn(real,mr,p));
-}
-function setCardTop(id,status) {
-  const el=document.getElementById(id);
-  if(el) el.style.background=BAR_COLORS[status]||'var(--beige-2)';
-}
-function setHKpi(boxId,valId,trendId,val,mr,fmtFn) {
-  const box=document.getElementById(boxId);
-  const vEl=document.getElementById(valId);
-  const tEl=document.getElementById(trendId);
-  if(!vEl||!tEl||!box) return;
-  vEl.innerHTML=fmtFn(val);
-  const s=mr?statusMeta(val,mr):'neu';
-  const diff=mr?((val/mr-1)*100):0;
-  const sign=diff>=0?'+':'';
-  const cls={green:'up',yellow:'warn',red:'down',neu:'neu',gray:'neu'};
-  const arrows={green:'▲',yellow:'▼',red:'▼',neu:'—',gray:'→'};
-  tEl.className=`hk-trend ${cls[s]||'neu'}`;
-  tEl.textContent=mr?`${arrows[s]} ${sign}${Math.abs(diff).toFixed(1)}% vs meta`:'—';
-  box.className=`hk hk-${s==='green'?'up':s==='yellow'?'warn':s==='red'?'down':'neu'}`;
-}
+
 function fmt(n)  { return n.toLocaleString('pt-BR'); }
-function fmtR(n) { return 'R$ '+fmt(Math.round(n)); }
+function fmtR(n) { return 'R$ ' + fmt(Math.round(n)); }
 
 function aplicar() {
   const de     = document.getElementById('f-de').value;
@@ -547,120 +497,105 @@ function aplicar() {
   const estado = document.getElementById('f-estado').value;
 
   const rdBase = RD.filter(d => {
-    if(de  && d.DataStr<de)    return false;
-    if(ate && d.DataStr>ate)   return false;
-    if(resp && d.Resp!==resp)  return false;
+    if (de  && d.DataStr < de)   return false;
+    if (ate && d.DataStr > ate)  return false;
+    if (resp && d.Resp !== resp) return false;
     return true;
   });
   const ez = EZ.filter(d => {
-    if(de  && d.DataStr<de)       return false;
-    if(ate && d.DataStr>ate)      return false;
-    if(resp && d.Agente!==resp)   return false;
+    if (de  && d.DataStr < de)       return false;
+    if (ate && d.DataStr > ate)      return false;
+    if (resp && d.Agente !== resp)   return false;
     return true;
   });
 
-  const orcamentos = rdBase.filter(d=>etapasOrc.includes(d.Etapa)&&d['Valor Único']>0);
-  const vendidas   = rdBase.filter(d=>d.Estado==='Vendida');
+  const orcamentos = rdBase.filter(d => etapasOrc.includes(d.Etapa) && d['Valor Único'] > 0);
+  const vendidas   = rdBase.filter(d => d.Estado === 'Vendida');
 
   const totalAtend = ez.length;
   const totalOrc   = orcamentos.length;
   const totalPed   = vendidas.length;
-  const totalLit   = vendidas.reduce((s,d)=>s+(d.Litragem_num||0),0);
-  const totalRec   = vendidas.reduce((s,d)=>s+(d['Valor Único']||0),0);
-  const tmPed      = totalPed?totalRec/totalPed:0;
-  const tmLit      = totalPed?totalLit/totalPed:0;
-  const recLit     = totalLit?totalRec/totalLit:0;
-  const dias       = diasNoPeriodo(de,ate);
-  const avgLit     = totalLit?totalLit/dias:0;
-  const avgRec     = totalRec?totalRec/dias:0;
-
-  // Conversões
-  const convAlcAtend = (ALCANCE_FIXO?(totalAtend/ALCANCE_FIXO*100).toFixed(1)+'% alc→atend':'—');
-  const convAtendOrc = totalAtend?(totalOrc/totalAtend*100).toFixed(1)+'% atend→orc':'—';
-  const convAtendPed = totalAtend?(totalPed/totalAtend*100).toFixed(1)+'% atend→ped':'—';
+  const totalLit   = vendidas.reduce((s,d) => s + (d.Litragem_num || 0), 0);
+  const totalRec   = vendidas.reduce((s,d) => s + (d['Valor Único'] || 0), 0);
+  const tmPed      = totalPed ? totalRec / totalPed : 0;
+  const tmLit      = totalPed ? totalLit / totalPed : 0;
+  const recLit     = totalLit ? totalRec / totalLit : 0;
+  const dias       = diasNoPeriodo(de, ate);
+  const avgLit     = totalLit ? totalLit / dias : 0;
+  const avgRec     = totalRec ? totalRec / dias : 0;
 
   // Pro-rata
-  const mrOrc = metaProRata(METAS.orc,de,ate,resp);
-  const mrLit = metaProRata(METAS.lit,de,ate,resp);
-  const mrRec = metaProRata(METAS.rec,de,ate,resp);
-  const mrPed = metaProRata(METAS.ped,de,ate,resp);
+  const mrOrc = metaProRata(METAS.orc, de, ate, resp);
+  const mrLit = metaProRata(METAS.lit, de, ate, resp);
+  const mrRec = metaProRata(METAS.rec, de, ate, resp);
+  const mrPed = metaProRata(METAS.ped, de, ate, resp);
 
-  const sOrc=statusMeta(totalOrc,mrOrc);
-  const sLit=statusMeta(totalLit,mrLit);
-  const sRec=statusMeta(totalRec,mrRec);
-  const sPed=statusMeta(totalPed,mrPed);
+  const sOrc = statusMeta(totalOrc, mrOrc);
+  const sLit = statusMeta(totalLit, mrLit);
+  const sRec = statusMeta(totalRec, mrRec);
+  const sPed = statusMeta(totalPed, mrPed);
+  const sTmPed = statusMeta(tmPed,  REF.tmPed);
+  const sTmLit = statusMeta(tmLit,  REF.tmLit);
+  const sRLit  = statusMeta(recLit, REF.recLit);
 
-  // Valores
-  document.getElementById('v-alc').textContent    = fmt(ALCANCE_FIXO);
+  // Atualizar valores
   document.getElementById('v-atend').textContent  = fmt(totalAtend);
   document.getElementById('v-orc').textContent    = fmt(totalOrc);
   document.getElementById('v-ped').textContent    = fmt(totalPed);
-  document.getElementById('v-lit').innerHTML      = fmt(Math.round(totalLit))+'<span class="u"> L</span>';
+  document.getElementById('v-lit').innerHTML      = fmt(Math.round(totalLit)) + '<span class="u"> L</span>';
   document.getElementById('v-rec').textContent    = fmtR(totalRec);
   document.getElementById('v-tm-ped').textContent = fmtR(tmPed);
-  document.getElementById('v-tm-lit').innerHTML   = tmLit.toFixed(1)+'<span class="u"> L</span>';
-  document.getElementById('v-rec-lit').textContent= 'R$ '+recLit.toFixed(2).replace('.',',');
+  document.getElementById('v-tm-lit').innerHTML   = tmLit.toFixed(1) + '<span class="u"> L</span>';
+  document.getElementById('v-rec-lit').textContent= 'R$ ' + recLit.toFixed(2).replace('.', ',');
 
   // Bezels
-  document.getElementById('bz-alc').textContent      = convAlcAtend;
-  document.getElementById('bz-atend').textContent    = convAtendOrc;
-  document.getElementById('bz-orc').textContent      = convAtendOrc;
-  document.getElementById('bz-ped').textContent      = convAtendPed;
-  document.getElementById('bz-lit').textContent      = fmt(Math.round(avgLit))+' L/dia';
-  document.getElementById('bz-rec').textContent      = fmtR(avgRec)+'/dia';
-  document.getElementById('bz-tm-ped').textContent   = 'Ref: R$ '+REF.tmPed.toLocaleString('pt-BR');
-  document.getElementById('bz-tm-lit').textContent   = 'Ref: '+REF.tmLit+' L/pedido';
-  document.getElementById('bz-rec-lit').textContent  = 'Ref: R$ '+REF.recLit.toFixed(2).replace('.',',') +'/L';
+  const convAlcAtend = ALCANCE_FIXO ? (totalAtend/ALCANCE_FIXO*100).toFixed(1)+'% alc→atend' : '—';
+  const convAtendOrc = totalAtend   ? (totalOrc/totalAtend*100).toFixed(1)+'% atend→orc' : '—';
+  const convOrcPed   = totalOrc     ? (totalPed/totalOrc*100).toFixed(1)+'% orc→ped' : '—';
+  document.getElementById('bz-alc').textContent     = convAlcAtend;
+  document.getElementById('bz-atend').textContent   = convAtendOrc;
+  document.getElementById('bz-orc').textContent     = convAtendOrc;
+  document.getElementById('bz-ped').textContent     = convOrcPed;
+  document.getElementById('bz-lit').textContent     = fmt(Math.round(avgLit)) + ' L/dia';
+  document.getElementById('bz-rec').textContent     = fmtR(avgRec) + '/dia';
+  document.getElementById('bz-tm-ped').textContent  = 'Ref: ' + fmtR(REF.tmPed);
+  document.getElementById('bz-tm-lit').textContent  = 'Ref: ' + REF.tmLit + ' L/pedido';
+  document.getElementById('bz-rec-lit').textContent = 'Ref: R$ ' + REF.recLit.toFixed(2).replace('.', ',') + '/L';
 
-  // Tip helper
-  const tip = (real,mr,p) => `${fmt(Math.round(real))} de ${fmt(Math.round(mr))} (${p.toFixed(0)}%)`;
-  const tipR = (real,mr,p) => `${fmtR(real)} de ${fmtR(mr)} (${p.toFixed(0)}%)`;
+  // Bordas topo
+  setCardTop('ct-atend', 'gray');
+  setCardTop('ct-orc',   sOrc);
+  setCardTop('ct-ped',   sPed);
+  setCardTop('ct-lit',   sLit);
+  setCardTop('ct-rec',   sRec);
 
-  // Barras — alcance placeholder
-  setProgress('pb-alc','pb-alc-bg','pp-alc', totalAtend, ALCANCE_FIXO,
-    (r,m,p)=>`${fmt(r)} de ${fmt(m)} (${p.toFixed(0)}%)`);
-  setProgress('pb-atend','pb-atend-bg','pp-atend', totalOrc, totalAtend,
-    (r,m,p)=>`${fmt(r)} orc de ${fmt(m)} atend (${p.toFixed(0)}%)`);
-  setProgress('pb-orc','pb-orc-bg','pp-orc', totalOrc, mrOrc, tip);
-  setProgress('pb-ped','pb-ped-bg','pp-ped', totalPed, mrPed, tip);
-  setProgress('pb-lit','pb-lit-bg','pp-lit', totalLit, mrLit, tip);
-  setProgress('pb-rec','pb-rec-bg','pp-rec', totalRec, mrRec, tipR);
-
-  // L3 barras — vs referência histórica
-  const mrTmPed = tmPed ? REF.tmPed : 0;
-  const mrTmLit = tmLit ? REF.tmLit : 0;
-  const mrRecLit= recLit? REF.recLit: 0;
-  setProgress('pb-tm-ped','pb-tm-ped-bg','pp-tm-ped', tmPed, mrTmPed,
-    (r,m,p)=>`R$${r.toFixed(0)} vs ref R$${m} (${p.toFixed(0)}%)`);
-  setProgress('pb-tm-lit','pb-tm-lit-bg','pp-tm-lit', tmLit, mrTmLit,
-    (r,m,p)=>`${r.toFixed(1)}L vs ref ${m}L (${p.toFixed(0)}%)`);
-  setProgress('pb-rec-lit','pb-rec-lit-bg','pp-rec-lit', recLit, mrRecLit,
-    (r,m,p)=>`R$${r.toFixed(2)} vs ref R$${m} (${p.toFixed(0)}%)`);
-
-  // Topos
-  setCardTop('ct-alc','gray');
-  setCardTop('ct-atend','gray');
-  setCardTop('ct-orc',sOrc);
-  setCardTop('ct-ped',sPed);
-  setCardTop('ct-lit',sLit);
-  setCardTop('ct-rec',sRec);
+  // Círculos
+  makeCircle('cc-alc',    ALCANCE_FIXO ? (totalAtend/ALCANCE_FIXO*100) : 0, COLORS.gray, pctLabel(totalAtend, ALCANCE_FIXO));
+  makeCircle('cc-atend',  totalAtend   ? (totalOrc/totalAtend*100) : 0, COLORS.gray, pctLabel(totalOrc, totalAtend));
+  makeCircle('cc-orc',    (totalOrc/mrOrc*100), COLORS[sOrc], pctLabel(totalOrc, mrOrc));
+  makeCircle('cc-ped',    (totalPed/mrPed*100), COLORS[sPed], pctLabel(totalPed, mrPed));
+  makeCircle('cc-lit',    (totalLit/mrLit*100), COLORS[sLit], pctLabel(totalLit, mrLit));
+  makeCircle('cc-rec',    (totalRec/mrRec*100), COLORS[sRec], pctLabel(totalRec, mrRec));
+  makeCircle('cc-tm-ped', tmPed  ? (tmPed/REF.tmPed*100) : 0,   COLORS[sTmPed], pctLabel(tmPed, REF.tmPed));
+  makeCircle('cc-tm-lit', tmLit  ? (tmLit/REF.tmLit*100) : 0,   COLORS[sTmLit], pctLabel(tmLit, REF.tmLit));
+  makeCircle('cc-rec-lit',recLit ? (recLit/REF.recLit*100) : 0, COLORS[sRLit],  pctLabel(recLit, REF.recLit));
 
   // Header
-  setHKpi('hk-lit','hv-lit','ht-lit',totalLit,mrLit,v=>fmt(Math.round(v))+'<span class="u"> L</span>');
-  setHKpi('hk-rec','hv-rec','ht-rec',totalRec,mrRec,v=>'R$'+Math.round(v/1000)+'k');
-  document.getElementById('hv-conv').textContent = totalOrc?(totalPed/totalOrc*100).toFixed(1)+'%':'—';
+  setHKpi('hk-lit','hv-lit','ht-lit', totalLit, mrLit, v => fmt(Math.round(v))+'<span class="u"> L</span>');
+  setHKpi('hk-rec','hv-rec','ht-rec', totalRec, mrRec, v => 'R$'+Math.round(v/1000)+'k');
+  document.getElementById('hv-conv').textContent = totalOrc ? (totalPed/totalOrc*100).toFixed(1)+'%' : '—';
   document.getElementById('ht-conv').textContent = 'orç → pedido';
 
-  const nome=resp||'Todos os responsáveis';
-  document.getElementById('header-sub').textContent=
+  const nome = resp || 'Todos os responsáveis';
+  document.getElementById('header-sub').textContent =
     `Filtro: ${nome} · ${fmt(totalAtend)} atendimentos · ${fmt(totalPed)} pedidos`;
 }
 
 function limpar() {
-  document.getElementById('f-de').value    ='2026-02-01';
-  document.getElementById('f-ate').value   ='2026-02-28';
-  document.getElementById('f-resp').value  ='';
-  document.getElementById('f-estado').value='';
+  document.getElementById('f-de').value    = '2026-02-01';
+  document.getElementById('f-ate').value   = '2026-02-28';
+  document.getElementById('f-resp').value  = '';
+  document.getElementById('f-estado').value= '';
   aplicar();
 }
 
