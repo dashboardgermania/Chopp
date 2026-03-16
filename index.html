@@ -101,13 +101,18 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .c-center{
   flex:1;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:0;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
 }
-/* Wrapper que agrupa val+bezel como unidade */
-.c-center .c-main{margin-bottom:5px;align-items:center;}
-.c-center .c-main .circ-wrap{align-self:center;}
+/* Lado esquerdo: val+bezel em coluna, colados */
+.c-val-block{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  align-items:flex-start;
+}
 
 /* Linha valor + círculo */
 .c-main{
@@ -217,11 +222,11 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
       <div class="card-ab">
         <div class="c-header"><div class="c-title">Alcance</div><div class="c-sub">Total de leads captados no período</div></div>
         <div class="c-center">
-          <div class="c-main">
+          <div class="c-val-block">
             <div class="c-val" id="v-alc">9.632</div>
-            <div class="circ-wrap"><div id="ci-alc"></div><div class="circ-lbl">alc→atend</div><div class="circ-tip" id="ct-alc">—</div></div>
+            <span class="bezel neu" id="bz-alc">—</span>
           </div>
-          <span class="bezel neu" id="bz-alc">—</span>
+          <div class="circ-wrap"><div id="ci-alc"></div><div class="circ-lbl">alc→atend</div><div class="circ-tip" id="ct-alc">—</div></div>
         </div>
       </div>
     </div>
@@ -229,11 +234,11 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
       <div class="card-ab">
         <div class="c-header"><div class="c-title">Atendimento</div><div class="c-sub">Atendimentos únicos no canal</div></div>
         <div class="c-center">
-          <div class="c-main">
+          <div class="c-val-block">
             <div class="c-val" id="v-at">—</div>
-            <div class="circ-wrap"><div id="ci-at"></div><div class="circ-lbl">atend→orc</div><div class="circ-tip" id="ct-at">—</div></div>
+            <span class="bezel warm" id="bz-at">—</span>
           </div>
-          <span class="bezel warm" id="bz-at">—</span>
+          <div class="circ-wrap"><div id="ci-at"></div><div class="circ-lbl">atend→orc</div><div class="circ-tip" id="ct-at">—</div></div>
         </div>
       </div>
     </div>
@@ -241,11 +246,11 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
       <div class="card-ab">
         <div class="c-header"><div class="c-title">Orçamentos</div><div class="c-sub">Proposta Comercial + etapas seguintes</div></div>
         <div class="c-center">
-          <div class="c-main">
+          <div class="c-val-block">
             <div class="c-val" id="v-orc">—</div>
-            <div class="circ-wrap"><div id="ci-orc"></div><div class="circ-lbl">meta</div><div class="circ-tip" id="ct-orc">—</div></div>
+            <span class="bezel warm" id="bz-orc">—</span>
           </div>
-          <span class="bezel warm" id="bz-orc">—</span>
+          <div class="circ-wrap"><div id="ci-orc"></div><div class="circ-lbl">meta</div><div class="circ-tip" id="ct-orc">—</div></div>
         </div>
       </div>
     </div>
@@ -257,11 +262,11 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
       <div class="card-ab">
         <div class="c-header"><div class="c-title">Pedidos</div><div class="c-sub">Deals fechados no período</div></div>
         <div class="c-center">
-          <div class="c-main">
+          <div class="c-val-block">
             <div class="c-val" id="v-ped">—</div>
-            <div class="circ-wrap"><div id="ci-ped"></div><div class="circ-lbl">meta</div><div class="circ-tip" id="ct-ped">—</div></div>
+            <span class="bezel warm" id="bz-ped">—</span>
           </div>
-          <span class="bezel warm" id="bz-ped">—</span>
+          <div class="circ-wrap"><div id="ci-ped"></div><div class="circ-lbl">meta</div><div class="circ-tip" id="ct-ped">—</div></div>
         </div>
       </div>
     </div>
@@ -269,11 +274,11 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
       <div class="card-ab">
         <div class="c-header"><div class="c-title">Litros</div><div class="c-sub">Volume total vendido no período</div></div>
         <div class="c-center">
-          <div class="c-main">
+          <div class="c-val-block">
             <div class="c-val" id="v-lit">—</div>
-            <div class="circ-wrap"><div id="ci-lit"></div><div class="circ-lbl">meta</div><div class="circ-tip" id="ct-lit">—</div></div>
+            <span class="bezel neu" id="bz-lit">—</span>
           </div>
-          <span class="bezel neu" id="bz-lit">—</span>
+          <div class="circ-wrap"><div id="ci-lit"></div><div class="circ-lbl">meta</div><div class="circ-tip" id="ct-lit">—</div></div>
         </div>
       </div>
     </div>
@@ -281,11 +286,11 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
       <div class="card-ab">
         <div class="c-header"><div class="c-title">Receita</div><div class="c-sub">Faturamento total do período</div></div>
         <div class="c-center">
-          <div class="c-main">
+          <div class="c-val-block">
             <div class="c-val" id="v-rec" style="font-size:34px;">—</div>
-            <div class="circ-wrap"><div id="ci-rec"></div><div class="circ-lbl">meta</div><div class="circ-tip" id="ct-rec">—</div></div>
+            <span class="bezel neu" id="bz-rec">—</span>
           </div>
-          <span class="bezel neu" id="bz-rec">—</span>
+          <div class="circ-wrap"><div id="ci-rec"></div><div class="circ-lbl">meta</div><div class="circ-tip" id="ct-rec">—</div></div>
         </div>
       </div>
     </div>
@@ -297,11 +302,11 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
       <div class="card-ab">
         <div class="c-header"><div class="c-title">Ticket Médio / Pedido</div><div class="c-sub">Receita ÷ pedidos · variação semanal fev/26</div></div>
         <div class="c-center">
-          <div class="c-main" style="align-items:flex-end;">
+          <div class="c-val-block">
             <div class="c-val" id="v-tp" style="font-size:36px;">—</div>
-            <div class="spark-outer" id="sp-tp"></div>
+            <span class="bezel neu" id="bz-tp">—</span>
           </div>
-          <span class="bezel neu" id="bz-tp">—</span>
+          <div class="spark-outer" id="sp-tp"></div>
         </div>
       </div>
     </div>
@@ -309,11 +314,11 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
       <div class="card-ab">
         <div class="c-header"><div class="c-title">Ticket Médio / Litros</div><div class="c-sub">Volume médio por evento · variação semanal fev/26</div></div>
         <div class="c-center">
-          <div class="c-main" style="align-items:flex-end;">
+          <div class="c-val-block">
             <div class="c-val" id="v-tl" style="font-size:36px;">—</div>
-            <div class="spark-outer" id="sp-tl"></div>
+            <span class="bezel neu" id="bz-tl">—</span>
           </div>
-          <span class="bezel neu" id="bz-tl">—</span>
+          <div class="spark-outer" id="sp-tl"></div>
         </div>
       </div>
     </div>
@@ -321,11 +326,11 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
       <div class="card-ab">
         <div class="c-header"><div class="c-title">Receita / Litro</div><div class="c-sub">Yield médio de faturamento · variação semanal fev/26</div></div>
         <div class="c-center">
-          <div class="c-main" style="align-items:flex-end;">
+          <div class="c-val-block">
             <div class="c-val" id="v-rl" style="font-size:36px;">—</div>
-            <div class="spark-outer" id="sp-rl"></div>
+            <span class="bezel neu" id="bz-rl">—</span>
           </div>
-          <span class="bezel neu" id="bz-rl">—</span>
+          <div class="spark-outer" id="sp-rl"></div>
         </div>
       </div>
     </div>
