@@ -99,8 +99,9 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
   padding:12px 15px 12px;
   display:flex;
   flex-direction:column;
+  position:relative;
 }
-.c-header{flex-shrink:0;margin-bottom:0;}
+.c-header{flex-shrink:0;margin-bottom:2px;}
 .c-title{
   display:inline-flex;align-items:center;
   font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
@@ -121,12 +122,12 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 /* Bloco central — val+bezel agrupados e centralizados */
 .c-center{
   flex:1;
+  min-height:0;
   display:flex;
   flex-direction:row;
   align-items:center;
-  justify-content:space-between;
+  justify-content:flex-start;
   gap:10px;
-  padding:2px 0;
 }
 /* Lado esquerdo: val+bezel em coluna, colados */
 .c-val-block{
@@ -167,10 +168,13 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 
 /* CÍRCULO — centralizado, stroke 7px */
 .circ-wrap{
-  flex-shrink:0;display:flex;flex-direction:column;
+  position:absolute;
+  right:16px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;flex-direction:column;
   align-items:center;justify-content:center;
-  align-self:center;
-  gap:3px;cursor:default;position:relative;
+  gap:3px;cursor:default;
 }
 .circ-wrap svg{display:block;transition:transform 0.2s;}
 .circ-wrap:hover svg{transform:scale(1.06);}
@@ -405,7 +409,7 @@ const SEM=['S1·03/02','S2·10/02','S3·17/02','S4·24/02'];
 const SC={green:'#1E7A42',yellow:'#966A00',red:'#B82418',gray:'#9BA8B0'};
 
 /* CÍRCULO — stroke 7px */
-const CR=42,CCX=52,CCY=52,CSZ=104,CCIRC=2*Math.PI*CR;
+const CR=40,CCX=50,CCY=50,CSZ=100,CCIRC=2*Math.PI*CR;
 function circ(elId,pct,color,txt){
   const el=document.getElementById(elId);if(!el)return;
   const cp=Math.min(Math.max(pct||0,0),100),off=CCIRC-(cp/100)*CCIRC;
