@@ -80,13 +80,13 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 /* CARD BASE */
 .card{background:var(--card-bg);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow-sm);position:relative;overflow:visible;transition:box-shadow 0.2s,transform 0.2s;}
 .card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);}
-.card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;border-radius:0 0 var(--radius) var(--radius);transition:height 0.2s,background 0.3s;}
+.card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:0;border-radius:0 0 var(--radius) var(--radius);transition:height 0.2s,background 0.3s;}
 .card:hover::after{height:4px;}
 .card[data-s="green"]::after{background:inherit;}
-.card.line-l1::after{background:#3D6490 !important;}
-.card.line-l2::after{background:#2E6644 !important;}
-.card.line-l3::after{background:#6B4E10 !important;}
-.card.line-l4::after{background:rgba(160,150,140,0.30) !important;}
+.card.line-l1::after{background:transparent !important;}
+.card.line-l2::after{background:transparent !important;}
+.card.line-l3::after{background:transparent !important;}
+.card.line-l4::after{background:transparent !important;}
 .card[data-s="yellow"]::after{background:inherit;}
 .card[data-s="red"]::after{background:inherit;}
 .card[data-s="gray"]::after{background:inherit;}
@@ -112,6 +112,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
   letter-spacing:1px;text-transform:uppercase;
   border-radius:20px;padding:3px 11px;
   margin-bottom:1px;
+  align-self:flex-start;
 }
 /* L1 — topo de funil — azul-acinzentado */
 .pill-l1{background:rgba(91,127,166,0.12);color:#3D6490;border:1px solid rgba(91,127,166,0.22);}
@@ -202,6 +203,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
   letter-spacing:1px;text-transform:uppercase;
   border-radius:20px;padding:3px 11px;
   margin-bottom:1px;
+  align-self:flex-start;
 }
 /* L1 — topo de funil — azul-acinzentado */
 .pill-l1{background:rgba(91,127,166,0.12);color:#3D6490;border:1px solid rgba(91,127,166,0.22);}
