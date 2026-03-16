@@ -64,6 +64,10 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .btn-f:hover{background:var(--red-dk);transform:translateY(-1px);} .btn-f:active{transform:translateY(0);}
 .btn-c{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:transparent;color:var(--txt-mid);border:1px solid var(--border);border-radius:5px;padding:4px 10px;cursor:pointer;transition:all 0.15s;}
 .btn-c:hover{border-color:var(--txt-mid);}
+.btn-sh{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;background:transparent;color:var(--txt-faint);border:1px solid var(--border);border-radius:5px;padding:3px 9px;cursor:pointer;transition:all 0.15s;}
+.btn-sh:hover{background:var(--gold);color:#FFF;border-color:var(--gold);}
+.btn-sh.active{background:var(--gold);color:#FFF;border-color:var(--gold);}
+.f-shortcuts{gap:4px;}
 .f-upd{margin-left:auto;font-family:'Barlow Condensed',sans-serif;font-size:8px;letter-spacing:1px;color:var(--txt-faint);font-style:italic;}
 
 /* MAIN */
@@ -95,7 +99,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 }
 .c-header{flex-shrink:0;margin-bottom:0;}
 .c-title{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--grafite);}
-.c-sub{font-size:9px;font-weight:400;color:var(--txt-faint);line-height:1.3;margin-top:1px;}
+.c-sub{font-size:11px;font-weight:400;color:var(--txt-faint);line-height:1.3;margin-top:1px;}
 
 /* Bloco central — val+bezel agrupados e centralizados */
 .c-center{
@@ -135,7 +139,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .bezel{
   display:inline-flex;align-items:center;gap:3px;
   border-radius:20px;padding:3px 10px;
-  font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:500;
+  font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:500;
   border:1px solid transparent;cursor:default;align-self:flex-start;
   transition:filter 0.15s,padding 0.12s,transform 0.12s;
   white-space:nowrap;
@@ -167,7 +171,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 /* TEMPLATE C */
 .card-c{height:var(--h-c);padding:12px 15px 12px;display:flex;flex-direction:column;background:var(--card-bg-alt);}
 .card-c .c-title{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--grafite);}
-.card-c .c-sub{font-size:9px;color:var(--txt-faint);margin-top:1px;}
+.card-c .c-sub{font-size:11px;color:var(--txt-faint);margin-top:1px;}
 .csat-ph{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;margin-top:6px;background:repeating-linear-gradient(-45deg,transparent,transparent 7px,rgba(120,100,60,0.04) 7px,rgba(120,100,60,0.04) 14px);border-radius:5px;border:1px dashed rgba(160,130,80,0.15);}
 .csat-ph span{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;color:rgba(200,185,160,0.5);letter-spacing:5px;}
 .csat-ph small{font-size:8px;color:var(--txt-faint);font-style:italic;}
@@ -206,8 +210,15 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 <div class="filters-wrap">
   <div class="filters">
     <div class="f-group"><span class="f-lbl">Período</span><input type="date" class="f-input" id="f-de" value="2026-02-01"><span class="f-sep">até</span><input type="date" class="f-input" id="f-ate" value="2026-02-28"></div>
+    <div class="f-group f-shortcuts">
+      <button class="btn-sh" onclick="setShortcut('mes-atual')">Este mês</button>
+      <button class="btn-sh" onclick="setShortcut('mes-passado')">Mês passado</button>
+      <button class="btn-sh" onclick="setShortcut('15d')">15 dias</button>
+      <button class="btn-sh" onclick="setShortcut('7d')">7 dias</button>
+      <button class="btn-sh" onclick="setShortcut('hoje')">Hoje</button>
+    </div>
     <div class="f-group"><span class="f-lbl">Responsável</span><select class="f-sel" id="f-resp"><option value="">Todos</option><option>Taciana</option><option>Lídia</option><option>Raiza</option><option>Mirian</option><option>Marciano</option></select></div>
-    <div class="f-group"><span class="f-lbl">Estado</span><select class="f-sel" id="f-est"><option value="">Todos</option><option>Vendida</option><option>Perdida</option><option>Em Andamento</option></select></div>
+    <div class="f-group"><span class="f-lbl">Status</span><select class="f-sel" id="f-est"><option value="">Todos</option><option>Vendida</option><option>Perdida</option><option>Em Andamento</option></select></div>
     <button class="btn-f" onclick="go()">FILTRAR</button>
     <button class="btn-c" onclick="reset()">LIMPAR</button>
     <span class="f-upd">Atualizado em: 12/03/2026</span>
@@ -389,11 +400,11 @@ function spark(id,vals,labs,fmtFn){
   const area=`M${xs[0].toFixed(1)},${ys[0].toFixed(1)} ${xs.map((x,i)=>`L${x.toFixed(1)},${ys[i].toFixed(1)}`).join(' ')} L${xs[n-1].toFixed(1)},${(H-pB).toFixed(1)} L${xs[0].toFixed(1)},${(H-pB).toFixed(1)} Z`;
   const vLbls=vals.map((v,i)=>{
     const a=i===0?'start':i===n-1?'end':'middle';
-    return `<text x="${xs[i].toFixed(1)}" y="${(ys[i]-5).toFixed(1)}" text-anchor="${a}" font-family="Barlow Condensed,sans-serif" font-size="8" font-weight="400" fill="var(--sp-val)">${fmtFn(v)}</text>`;
+    return `<text x="${xs[i].toFixed(1)}" y="${(ys[i]-5).toFixed(1)}" text-anchor="${a}" font-family="Barlow Condensed,sans-serif" font-size="10" font-weight="400" fill="var(--sp-val)">${fmtFn(v)}</text>`;
   }).join('');
   const sLbls=labs.map((l,i)=>{
     const a=i===0?'start':i===n-1?'end':'middle';
-    return `<text x="${xs[i].toFixed(1)}" y="${(H-1).toFixed(1)}" text-anchor="${a}" font-family="Barlow Condensed,sans-serif" font-size="7.5" font-weight="400" fill="var(--txt-faint)">${l.split('·')[0].trim()}</text>`;
+    return `<text x="${xs[i].toFixed(1)}" y="${(H-1).toFixed(1)}" text-anchor="${a}" font-family="Barlow Condensed,sans-serif" font-size="9.5" font-weight="400" fill="var(--txt-faint)">${l.split('·')[0].trim()}</text>`;
   }).join('');
   const dots=vals.map((v,i)=>`<circle class="sd" cx="${xs[i].toFixed(1)}" cy="${ys[i].toFixed(1)}" r="3" fill="var(--sp-dot)" stroke="#FFF" stroke-width="1.5" style="cursor:pointer;transition:r 0.12s;" data-v="${fmtFn(v)}" data-l="${labs[i].split('·')[0].trim()}"/>`).join('');
   const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
@@ -436,6 +447,33 @@ function fmt(n){return n.toLocaleString('pt-BR');}
 function fR(n){return'R$'+Math.round(n).toLocaleString('pt-BR');}
 function fL(n){return Math.round(n)+'L';}
 
+function setShortcut(type){
+  const today = new Date();
+  const pad = n => String(n).padStart(2,'0');
+  const fmt = d => d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+  let de, ate;
+  if(type==='hoje'){
+    de = ate = fmt(today);
+  } else if(type==='7d'){
+    const s = new Date(today); s.setDate(today.getDate()-6);
+    de = fmt(s); ate = fmt(today);
+  } else if(type==='15d'){
+    const s = new Date(today); s.setDate(today.getDate()-14);
+    de = fmt(s); ate = fmt(today);
+  } else if(type==='mes-atual'){
+    de = fmt(new Date(today.getFullYear(), today.getMonth(), 1));
+    ate = fmt(new Date(today.getFullYear(), today.getMonth()+1, 0));
+  } else if(type==='mes-passado'){
+    de = fmt(new Date(today.getFullYear(), today.getMonth()-1, 1));
+    ate = fmt(new Date(today.getFullYear(), today.getMonth(), 0));
+  }
+  document.getElementById('f-de').value = de;
+  document.getElementById('f-ate').value = ate;
+  // highlight ativo
+  document.querySelectorAll('.btn-sh').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  go();
+}
 function go(){
   const de=document.getElementById('f-de').value;
   const ate=document.getElementById('f-ate').value;
