@@ -83,10 +83,14 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;border-radius:0 0 var(--radius) var(--radius);transition:height 0.2s,background 0.3s;}
 .card:hover::after{height:4px;}
 .card[data-s="green"]::after{background:rgba(30,122,66,0.70);}
+.card.line-l1::after{background:rgba(61,100,144,0.55);}
+.card.line-l2::after{background:rgba(46,102,68,0.55);}
+.card.line-l3::after{background:rgba(107,78,16,0.50);}
+.card.line-l4::after{background:rgba(122,122,122,0.30);}
 .card[data-s="yellow"]::after{background:rgba(150,106,0,0.65);}
 .card[data-s="red"]::after{background:rgba(184,36,24,0.65);}
 .card[data-s="gray"]::after{background:rgba(155,168,176,0.40);}
-.card[data-s="none"]::after{background:rgba(155,168,176,0.30);}
+.card[data-s="none"]::after{background:rgba(155,168,176,0.20);}
 
 /* ══ TEMPLATE A+B — layout interno ══
    Estrutura: padding fixo
@@ -186,7 +190,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .circ-wrap:hover .circ-tip{opacity:1;}
 
 /* SPARKLINE */
-.spark-outer{flex-shrink:0;width:50%;height:108px;position:relative;align-self:flex-start;margin-top:0;}
+.spark-outer{flex-shrink:0;width:48%;height:108px;position:absolute;right:15px;top:50%;transform:translateY(-52%);}
 .spark-outer svg{width:100%;height:100%;overflow:visible;display:block;}
 .sp-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(30,20,10,0.92);color:#FFF;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;padding:6px 15px;border-radius:5px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.12s;z-index:9999;}
 
@@ -268,7 +272,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 
   <!-- ROW 1 -->
   <div class="row">
-    <div class="card" id="c-alc" data-s="none">
+    <div class="card line-l1" id="c-alc" data-s="none">
       <div class="card-ab">
         <div class="c-header"><div class="c-title pill-l1">Alcance</div><div class="c-sub">Total de leads captados no período</div></div>
         <div class="c-center">
@@ -280,7 +284,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
         </div>
       </div>
     </div>
-    <div class="card" id="c-at" data-s="none">
+    <div class="card line-l1" id="c-at" data-s="none">
       <div class="card-ab">
         <div class="c-header"><div class="c-title pill-l1">Atendimento</div><div class="c-sub">Atendimentos únicos no canal</div></div>
         <div class="c-center">
@@ -292,7 +296,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
         </div>
       </div>
     </div>
-    <div class="card" id="c-orc" data-s="gray">
+    <div class="card line-l1" id="c-orc" data-s="gray">
       <div class="card-ab">
         <div class="c-header"><div class="c-title pill-l1">Orçamentos</div><div class="c-sub">Proposta Comercial + etapas seguintes</div></div>
         <div class="c-center">
@@ -308,7 +312,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 
   <!-- ROW 2 -->
   <div class="row">
-    <div class="card" id="c-ped" data-s="gray">
+    <div class="card line-l2" id="c-ped" data-s="gray">
       <div class="card-ab">
         <div class="c-header"><div class="c-title pill-l2">Pedidos</div><div class="c-sub">Deals fechados no período</div></div>
         <div class="c-center">
@@ -320,7 +324,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
         </div>
       </div>
     </div>
-    <div class="card" id="c-lit" data-s="gray">
+    <div class="card line-l2" id="c-lit" data-s="gray">
       <div class="card-ab">
         <div class="c-header"><div class="c-title pill-l2">Litros</div><div class="c-sub">Volume total vendido no período</div></div>
         <div class="c-center">
@@ -332,7 +336,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
         </div>
       </div>
     </div>
-    <div class="card" id="c-rec" data-s="gray">
+    <div class="card line-l2" id="c-rec" data-s="gray">
       <div class="card-ab">
         <div class="c-header"><div class="c-title pill-l2">Receita</div><div class="c-sub">Faturamento total do período</div></div>
         <div class="c-center">
@@ -348,7 +352,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 
   <!-- ROW 3 — sparklines -->
   <div class="row">
-    <div class="card" data-s="none">
+    <div class="card line-l3" data-s="none">
       <div class="card-ab">
         <div class="c-header"><div class="c-title pill-l3">Ticket Médio / Pedido</div><div class="c-sub">Receita ÷ pedidos · variação semanal fev/26</div></div>
         <div class="c-center">
@@ -360,7 +364,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
         </div>
       </div>
     </div>
-    <div class="card" data-s="none">
+    <div class="card line-l3" data-s="none">
       <div class="card-ab">
         <div class="c-header"><div class="c-title pill-l3">Ticket Médio / Litros</div><div class="c-sub">Volume médio por evento · variação semanal fev/26</div></div>
         <div class="c-center">
@@ -372,7 +376,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
         </div>
       </div>
     </div>
-    <div class="card" data-s="none">
+    <div class="card line-l3" data-s="none">
       <div class="card-ab">
         <div class="c-header"><div class="c-title pill-l3">Receita / Litro</div><div class="c-sub">Yield médio de faturamento · variação semanal fev/26</div></div>
         <div class="c-center">
@@ -388,9 +392,9 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 
   <!-- ROW 4 — CSAT -->
   <div class="row">
-    <div class="card" data-s="none"><div class="card-c"><div class="c-title pill-l4">Total de Avaliações</div><div class="c-sub">Pesquisa de satisfação CSAT</div><div class="csat-ph"><span>— —</span><small>Disponível ao fim do mês</small></div></div></div>
-    <div class="card" data-s="none"><div class="card-c"><div class="c-title pill-l4">% Insatisfeitos</div><div class="c-sub">Insatisfeito + Totalmente Insatisfeito</div><div class="csat-ph"><span>— —</span><small>Disponível ao fim do mês</small></div></div></div>
-    <div class="card" data-s="none"><div class="card-c"><div class="c-title pill-l4">% Satisfeitos</div><div class="c-sub">Satisfeito + Totalmente Satisfeito</div><div class="csat-ph"><span>— —</span><small>Disponível ao fim do mês</small></div></div></div>
+    <div class="card line-l4" data-s="none"><div class="card-c"><div class="c-title pill-l4">Total de Avaliações</div><div class="c-sub">Pesquisa de satisfação CSAT</div><div class="csat-ph"><span>— —</span><small>Disponível ao fim do mês</small></div></div></div>
+    <div class="card line-l4" data-s="none"><div class="card-c"><div class="c-title pill-l4">% Insatisfeitos</div><div class="c-sub">Insatisfeito + Totalmente Insatisfeito</div><div class="csat-ph"><span>— —</span><small>Disponível ao fim do mês</small></div></div></div>
+    <div class="card line-l4" data-s="none"><div class="card-c"><div class="c-title pill-l4">% Satisfeitos</div><div class="c-sub">Satisfeito + Totalmente Satisfeito</div><div class="csat-ph"><span>— —</span><small>Disponível ao fim do mês</small></div></div></div>
   </div>
 
 </div>
