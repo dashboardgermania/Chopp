@@ -97,14 +97,15 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .c-title{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--grafite);}
 .c-sub{font-size:9px;font-weight:400;color:var(--txt-faint);line-height:1.3;margin-top:1px;}
 
-/* Bloco central — ocupa espaço disponível e centraliza */
+/* Bloco central — centraliza grupo valor+bezel */
 .c-center{
   flex:1;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  gap:6px;
+  gap:0;
 }
+.c-center .c-main{margin-bottom:5px;}
 
 /* Linha valor + círculo */
 .c-main{
@@ -133,7 +134,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
   white-space:nowrap;
 }
 .bezel:hover{filter:brightness(0.93);padding:3px 12px;transform:translateY(-1px);}
-.bezel.warm{background:var(--bz-warm-bg);color:var(--bz-warm-txt);border-color:var(--bz-warm-bd);}
+.bezel.warm{background:var(--bz-neu-bg);color:var(--bz-neu-txt);border-color:var(--bz-neu-bd);}
 .bezel.neu{background:var(--bz-neu-bg);color:var(--bz-neu-txt);border-color:var(--bz-neu-bd);}
 
 /* CÍRCULO — centralizado, stroke 7px */
@@ -148,13 +149,13 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .c-fill{fill:none;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;}
 .c-pct{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-anchor:middle;dominant-baseline:central;}
 .circ-lbl{font-family:'Barlow Condensed',sans-serif;font-size:7px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:rgba(160,140,100,0.55);text-align:center;}
-.circ-tip{position:absolute;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);background:rgba(30,20,10,0.82);color:#FFF;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:600;padding:3px 8px;border-radius:4px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.15s;z-index:20;}
+.circ-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(30,20,10,0.88);color:#FFF;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;padding:5px 12px;border-radius:5px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.15s;z-index:20;}
 .circ-wrap:hover .circ-tip{opacity:1;}
 
 /* SPARKLINE */
 .spark-outer{flex-shrink:0;width:50%;height:72px;position:relative;}
 .spark-outer svg{width:100%;height:100%;overflow:visible;display:block;}
-.sp-tip{position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);background:rgba(30,20,10,0.82);color:#FFF;font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:600;padding:2px 7px;border-radius:4px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.12s;z-index:20;}
+.sp-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(30,20,10,0.88);color:#FFF;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;padding:5px 12px;border-radius:5px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.12s;z-index:20;}
 
 /* TEMPLATE C */
 .card-c{height:var(--h-c);padding:12px 15px 12px;display:flex;flex-direction:column;background:var(--card-bg-alt);}
@@ -360,7 +361,7 @@ function circ(elId,pct,color,txt){
     <circle class="c-fill" cx="${CCX}" cy="${CCY}" r="${CR}" stroke="${color}" stroke-width="7"
       stroke-dasharray="${CCIRC.toFixed(2)}" stroke-dashoffset="${CCIRC.toFixed(2)}"
       style="transition:stroke-dashoffset 0.85s cubic-bezier(0.4,0,0.2,1);"/>
-    <text class="c-pct" x="${CCX}" y="${CCY+4}" font-size="11" fill="${color}">${txt}</text>
+    <text class="c-pct" x="${CCX}" y="${CCY}" font-size="11" fill="${color}">${txt}</text>
   </svg>`;
   requestAnimationFrame(()=>requestAnimationFrame(()=>{
     const f=el.querySelector('.c-fill');if(f)f.style.strokeDashoffset=off.toFixed(2);
