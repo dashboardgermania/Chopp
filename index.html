@@ -29,16 +29,18 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .header{background:linear-gradient(150deg,#B02018 0%,var(--red) 55%,#C82820 100%);position:relative;overflow:hidden;}
 .header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 88% 50%,rgba(232,184,64,0.10) 0%,transparent 55%);pointer-events:none;}
 .header-inner{display:flex;align-items:center;gap:20px;max-width:var(--mw);margin:0 auto;padding:16px var(--pad-h);position:relative;z-index:1;}
-.h-logo{width:58px;height:58px;flex-shrink:0;}
-.h-logo img{width:58px;height:58px;object-fit:contain;}
+.h-logo{width:67px;height:67px;flex-shrink:0;}
+.h-logo img{width:67px;height:67px;object-fit:contain;}
 .h-div{width:1px;height:44px;background:rgba(255,255,255,0.12);flex-shrink:0;}
 .h-brand{flex-shrink:0;}
 .h-brand .eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:3px;}
 .h-brand h1{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;line-height:1;color:#FFF;}
 .h-brand h1 em{color:var(--gold-lt);font-style:normal;}
 .h-brand .sub{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:400;letter-spacing:1px;color:rgba(255,255,255,0.28);margin-top:4px;}
-.h-kpis{display:flex;gap:8px;margin-left:auto;}
-.hk{background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:10px 18px;text-align:center;min-width:118px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;transition:background 0.2s;}
+.h-kpis-wrap{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:5px;}
+.h-resumo-lbl{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);}
+.h-kpis{display:flex;gap:8px;}
+.hk{background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:10px 22px;text-align:center;min-width:140px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;transition:background 0.2s;}
 .hk:hover{background:rgba(0,0,0,0.32);}
 .hk::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;border-radius:0 0 var(--radius) var(--radius);}
 .hk.up::after{background:var(--s-green);opacity:0.7;} .hk.down::after{background:var(--s-red);opacity:0.7;}
@@ -198,10 +200,14 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
       <h1><em>CHOPP</em> | LIG CHOPP GERMÂNIA</h1>
       <div class="sub" id="h-sub">Período: fev. de 2026</div>
     </div>
-    <div class="h-kpis">
+    <div class="h-kpis-wrap">
+      <div class="h-resumo-lbl" id="h-resumo-lbl">Resumo Fevereiro</div>
+      <div class="h-kpis">
       <div class="hk neu" id="hk-lit"><div class="hk-l">Litros</div><div class="hk-v" id="hv-lit">—</div><div class="hk-t neu" id="ht-lit">—</div></div>
       <div class="hk neu" id="hk-rec"><div class="hk-l">Receita</div><div class="hk-v" id="hv-rec">—</div><div class="hk-t neu" id="ht-rec">—</div></div>
       <div class="hk neu" id="hk-cv"><div class="hk-l">Conversão</div><div class="hk-v" id="hv-cv">—</div><div class="hk-t neu" id="ht-cv">orç→pedido</div></div>
+    </div>
+      </div>
     </div>
   </div>
 </header>
@@ -209,7 +215,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 
 <div class="filters-wrap">
   <div class="filters">
-    <div class="f-group"><span class="f-lbl">Período</span><input type="date" class="f-input" id="f-de" value="2026-02-01"><span class="f-sep">até</span><input type="date" class="f-input" id="f-ate" value="2026-02-28"></div>
+    <div class="f-group"><span class="f-lbl">Período</span><input type="date" class="f-input" id="f-de" value="2026-02-01" onchange="go()"><span class="f-sep">até</span><input type="date" class="f-input" id="f-ate" value="2026-02-28" onchange="go()"></div>
     <div class="f-group f-shortcuts">
       <button class="btn-sh" onclick="setShortcut('mes-atual')">Este mês</button>
       <button class="btn-sh" onclick="setShortcut('mes-passado')">Mês passado</button>
@@ -217,9 +223,8 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
       <button class="btn-sh" onclick="setShortcut('7d')">7 dias</button>
       <button class="btn-sh" onclick="setShortcut('hoje')">Hoje</button>
     </div>
-    <div class="f-group"><span class="f-lbl">Responsável</span><select class="f-sel" id="f-resp"><option value="">Todos</option><option>Taciana</option><option>Lídia</option><option>Raiza</option><option>Mirian</option><option>Marciano</option></select></div>
-    <div class="f-group"><span class="f-lbl">Status</span><select class="f-sel" id="f-est"><option value="">Todos</option><option>Vendida</option><option>Perdida</option><option>Em Andamento</option></select></div>
-    <button class="btn-f" onclick="go()">FILTRAR</button>
+    <div class="f-group"><span class="f-lbl">Responsável</span><select class="f-sel" id="f-resp" onchange="go()"><option value="">Todos</option><option>Taciana</option><option>Lídia</option><option>Raiza</option><option>Mirian</option><option>Marciano</option></select></div>
+    <div class="f-group"><span class="f-lbl">Status</span><select class="f-sel" id="f-est" onchange="go()"><option value="">Todos</option><option>Vendida</option><option>Perdida</option><option>Em Andamento</option></select></div>
     <button class="btn-c" onclick="reset()">LIMPAR</button>
     <span class="f-upd">Atualizado em: 12/03/2026</span>
   </div>
@@ -560,13 +565,24 @@ function go(){
   document.getElementById('hv-cv').textContent=tOrc?(tPed/tOrc*100).toFixed(1)+'%':'—';
   document.getElementById('ht-cv').textContent='orç→pedido';
   document.getElementById('h-sub').textContent=`Filtro: ${resp||'Todos'} · ${fmt(tAt)} atend · ${fmt(tPed)} pedidos`;
+  const MESES=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+  const deDate=new Date(de+'T12:00:00');
+  const ateDate=new Date(ate+'T12:00:00');
+  const sameMonth=deDate.getMonth()===ateDate.getMonth()&&deDate.getFullYear()===ateDate.getFullYear();
+  const resumoEl=document.getElementById('h-resumo-lbl');
+  if(resumoEl)resumoEl.textContent=sameMonth?'Resumo '+MESES[deDate.getMonth()]:'Resumo do Período';
 }
 
 function reset(){
-  document.getElementById('f-de').value='2026-02-01';
-  document.getElementById('f-ate').value='2026-02-28';
+  const today=new Date();
+  const pad=n=>String(n).padStart(2,'0');
+  const y=today.getFullYear(),m=today.getMonth();
+  const lastDay=new Date(y,m+1,0).getDate();
+  document.getElementById('f-de').value=y+'-'+pad(m+1)+'-01';
+  document.getElementById('f-ate').value=y+'-'+pad(m+1)+'-'+pad(lastDay);
   document.getElementById('f-resp').value='';
   document.getElementById('f-est').value='';
+  document.querySelectorAll('.btn-sh').forEach(b=>b.classList.remove('active'));
   go();
 }
 go();
