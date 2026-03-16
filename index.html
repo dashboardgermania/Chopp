@@ -79,7 +79,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .card[data-s="yellow"]::after{background:rgba(150,106,0,0.65);}
 .card[data-s="red"]::after{background:rgba(184,36,24,0.65);}
 .card[data-s="gray"]::after{background:rgba(155,168,176,0.40);}
-.card[data-s="none"]::after{background:transparent;}
+.card[data-s="none"]::after{background:rgba(155,168,176,0.30);}
 
 /* ══ TEMPLATE A+B — layout interno ══
    Estrutura: padding fixo
@@ -97,7 +97,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .c-title{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--grafite);}
 .c-sub{font-size:9px;font-weight:400;color:var(--txt-faint);line-height:1.3;margin-top:1px;}
 
-/* Bloco central — centraliza grupo valor+bezel */
+/* Bloco central — val+bezel colados, grupo centralizado */
 .c-center{
   flex:1;
   display:flex;
@@ -105,7 +105,9 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
   justify-content:center;
   gap:0;
 }
-.c-center .c-main{margin-bottom:5px;}
+.c-center .c-main{margin-bottom:5px;align-items:flex-end;}
+/* Nos cards com círculo, alinhar base do val com base do círculo */
+.c-center .c-main .circ-wrap{margin-bottom:0;align-self:center;}
 
 /* Linha valor + círculo */
 .c-main{
@@ -153,7 +155,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .circ-wrap:hover .circ-tip{opacity:1;}
 
 /* SPARKLINE */
-.spark-outer{flex-shrink:0;width:50%;height:72px;position:relative;}
+.spark-outer{flex-shrink:0;width:50%;height:95px;position:relative;}
 .spark-outer svg{width:100%;height:100%;overflow:visible;display:block;}
 .sp-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(30,20,10,0.88);color:#FFF;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;padding:5px 12px;border-radius:5px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.12s;z-index:20;}
 
