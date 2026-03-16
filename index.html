@@ -19,250 +19,164 @@
   --txt-soft:  #7A6040;
   --txt-faint: #A89060;
   --border:    rgba(160,120,60,0.13);
+
+  /* bezel tonal pairs: text / bg */
+  --bz-gold-txt: #7A5000;
+  --bz-gold-bg:  #FFF3CC;
+  --bz-gold-bd:  rgba(180,120,0,0.18);
+
+  --bz-neu-txt:  #606060;
+  --bz-neu-bg:   #F2F2F2;
+  --bz-neu-bd:   rgba(120,120,120,0.18);
+
   --c-green:   #1A6B3A;
   --bg-green:  #E8F5EE;
-  --bd-green:  rgba(26,107,58,0.25);
-  --c-yellow:  #8A6200;
+  --bd-green:  rgba(26,107,58,0.22);
+  --c-yellow:  #7A5500;
   --bg-yellow: #FFF8E0;
-  --bd-yellow: rgba(200,140,0,0.25);
+  --bd-yellow: rgba(180,130,0,0.22);
   --c-red:     #B02018;
   --bg-red:    #FDECEA;
-  --bd-red:    rgba(176,32,24,0.22);
-  --c-gray:    #808080;
+  --bd-red:    rgba(176,32,24,0.20);
+  --c-gray:    #707070;
   --bg-gray:   #F4F4F4;
-  --bd-gray:   rgba(128,128,128,0.20);
+  --bd-gray:   rgba(128,128,128,0.18);
+
   --shadow:    0 1px 4px rgba(26,18,6,0.07), 0 2px 10px rgba(26,18,6,0.04);
   --shadow-md: 0 4px 20px rgba(26,18,6,0.11);
   --radius:    8px;
+  --mw:        1680px;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family:'Barlow',sans-serif;
-  background:var(--beige);
-  color:var(--grafite);
-  min-height:100vh;
-}
+body { font-family:'Barlow',sans-serif; background:var(--beige); color:var(--grafite); min-height:100vh; }
 
 /* ─── HEADER ─── */
-.header {
-  background:linear-gradient(150deg,#B82218 0%,#C92B1E 55%,#C42820 100%);
-  position:relative; overflow:hidden;
-}
-.header::before {
-  content:''; position:absolute; inset:0;
-  background:radial-gradient(ellipse at 85% 50%, rgba(245,192,64,0.10) 0%, transparent 55%);
-  pointer-events:none;
-}
-.header-inner {
-  display:flex; align-items:center; gap:20px;
-  max-width:1400px; margin:0 auto;
-  padding:20px 36px;
-  position:relative; z-index:1;
-}
-.h-logo { width:64px; height:64px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+.header { background:linear-gradient(150deg,#B82218 0%,#C92B1E 55%,#C42820 100%); position:relative; overflow:hidden; }
+.header::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 85% 50%, rgba(245,192,64,0.10) 0%, transparent 55%); pointer-events:none; }
+.header-inner { display:flex; align-items:center; gap:20px; max-width:var(--mw); margin:0 auto; padding:20px 40px; position:relative; z-index:1; }
+.h-logo { width:64px; height:64px; flex-shrink:0; }
 .h-logo img { width:64px; height:64px; object-fit:contain; }
 .h-div { width:1px; height:52px; background:rgba(255,255,255,0.12); flex-shrink:0; }
 .h-brand { flex-shrink:0; }
-.h-brand .eyebrow {
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:9px; font-weight:600; letter-spacing:3px;
-  text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:5px;
-}
-.h-brand h1 {
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:30px; font-weight:900; letter-spacing:1.5px;
-  text-transform:uppercase; line-height:1; color:var(--white);
-}
+.h-brand .eyebrow { font-family:'Barlow Condensed',sans-serif; font-size:9px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:5px; }
+.h-brand h1 { font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:900; letter-spacing:1.5px; text-transform:uppercase; line-height:1; color:var(--white); }
 .h-brand h1 em { color:var(--gold-lt); font-style:normal; }
-.h-brand .sub {
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:10px; font-weight:400; letter-spacing:1px;
-  color:rgba(255,255,255,0.30); margin-top:5px;
-}
+.h-brand .sub { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:400; letter-spacing:1px; color:rgba(255,255,255,0.30); margin-top:5px; }
 .h-kpis { display:flex; gap:10px; margin-left:auto; }
-.hk {
-  background:rgba(0,0,0,0.20);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:var(--radius);
-  padding:12px 20px; text-align:center; min-width:128px;
-  display:flex; flex-direction:column; justify-content:center;
-  position:relative; overflow:hidden;
-}
-.hk::after {
-  content:''; position:absolute;
-  bottom:0; left:0; right:0; height:2px;
-  border-radius:0 0 var(--radius) var(--radius);
-}
+.hk { background:rgba(0,0,0,0.20); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:12px 22px; text-align:center; min-width:130px; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; }
+.hk::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; border-radius:0 0 var(--radius) var(--radius); }
 .hk.hk-up::after   { background:var(--c-green); opacity:0.8; }
 .hk.hk-down::after { background:var(--c-red); opacity:0.8; }
 .hk.hk-warn::after { background:#D4A000; opacity:0.8; }
 .hk.hk-neu::after  { background:rgba(255,255,255,0.12); }
-.hk-l {
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:8px; font-weight:700; letter-spacing:2.5px;
-  text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:4px;
-}
-.hk-v {
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:30px; font-weight:900; color:var(--gold-lt); line-height:1; margin-bottom:3px;
-}
+.hk-l { font-family:'Barlow Condensed',sans-serif; font-size:8px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:4px; }
+.hk-v { font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:900; color:var(--gold-lt); line-height:1; margin-bottom:3px; }
 .hk-v .u { font-size:13px; opacity:0.7; font-weight:600; }
-.hk-trend {
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:10px; font-weight:700; letter-spacing:0.5px;
-}
+.hk-trend { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:600; letter-spacing:0.5px; }
 .hk-trend.up   { color:rgba(120,220,140,0.85); }
 .hk-trend.down { color:rgba(255,130,120,0.85); }
 .hk-trend.warn { color:rgba(255,210,80,0.85); }
 .hk-trend.neu  { color:rgba(255,255,255,0.30); }
 
-.accent-bar {
-  height:3px;
-  background:linear-gradient(90deg,var(--red-dk) 0%,var(--gold) 25%,var(--gold-lt) 50%,var(--gold) 75%,var(--red-dk) 100%);
-}
+.accent-bar { height:3px; background:linear-gradient(90deg,var(--red-dk) 0%,var(--gold) 25%,var(--gold-lt) 50%,var(--gold) 75%,var(--red-dk) 100%); }
 
 /* ─── FILTROS ─── */
 .filters-wrap { background:var(--cream); border-bottom:1px solid var(--border); box-shadow:0 1px 5px rgba(26,18,6,0.05); }
-.filters {
-  max-width:1400px; margin:0 auto; padding:10px 36px;
-  display:flex; align-items:center; gap:16px; flex-wrap:wrap;
-}
+.filters { max-width:var(--mw); margin:0 auto; padding:10px 40px; display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
 .f-group { display:flex; align-items:center; gap:7px; }
-.f-label {
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:9px; font-weight:700; letter-spacing:2px;
-  text-transform:uppercase; color:var(--txt-faint); white-space:nowrap;
-}
-.f-input, .f-select {
-  font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:600;
-  color:var(--grafite); background:var(--white); border:1px solid var(--border);
-  border-radius:6px; padding:5px 10px; outline:none; transition:border-color 0.15s;
-}
+.f-label { font-family:'Barlow Condensed',sans-serif; font-size:9px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--txt-faint); white-space:nowrap; }
+.f-input,.f-select { font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:600; color:var(--grafite); background:var(--white); border:1px solid var(--border); border-radius:6px; padding:5px 10px; outline:none; transition:border-color 0.15s; }
 .f-input:focus,.f-select:focus { border-color:var(--gold); }
 .f-sep { color:var(--txt-faint); font-size:10px; }
-.btn-filter {
-  font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:800;
-  letter-spacing:1.5px; text-transform:uppercase;
-  background:var(--red); color:var(--white); border:none; border-radius:6px;
-  padding:6px 16px; cursor:pointer; transition:background 0.15s;
-}
+.btn-filter { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; background:var(--red); color:var(--white); border:none; border-radius:6px; padding:6px 16px; cursor:pointer; transition:background 0.15s; }
 .btn-filter:hover { background:var(--red-dk); }
-.btn-clear {
-  font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700;
-  letter-spacing:1px; text-transform:uppercase;
-  background:transparent; color:var(--txt-soft);
-  border:1px solid var(--border); border-radius:6px;
-  padding:5px 12px; cursor:pointer; transition:all 0.15s;
-}
-.btn-clear:hover { border-color:var(--txt-soft); }
+.btn-clear { font-family:'Barlow Condensed',sans-serif; font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase; background:transparent; color:var(--txt-soft); border:1px solid var(--border); border-radius:6px; padding:5px 12px; cursor:pointer; }
 .f-updated { margin-left:auto; font-family:'Barlow Condensed',sans-serif; font-size:9px; letter-spacing:1px; color:var(--txt-faint); font-style:italic; }
 
 /* ─── MAIN ─── */
-.main { max-width:1400px; margin:0 auto; padding:20px 36px 48px; }
-.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:12px; }
+.main { max-width:var(--mw); margin:0 auto; padding:20px 40px 48px; }
+.grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:14px; }
 
 /* ─── CARD ─── */
-.card {
-  background:var(--white); border-radius:var(--radius);
-  overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--border);
-  transition:box-shadow 0.15s, transform 0.15s;
-}
+.card { background:var(--white); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); border:1px solid var(--border); transition:box-shadow 0.15s, transform 0.15s; }
 .card:hover { box-shadow:var(--shadow-md); transform:translateY(-1px); }
-.card.bg-beige { background:var(--beige); }
 .card.bg-cream { background:var(--cream); }
-.card.blank {
-  background:rgba(239,227,204,0.35);
-  border:1.5px dashed rgba(138,110,60,0.22); box-shadow:none;
-}
+.card.blank { background:rgba(239,227,204,0.35); border:1.5px dashed rgba(138,110,60,0.22); box-shadow:none; }
 .card.blank:hover { transform:none; box-shadow:none; }
 
-.card-top { height:3px; width:100%; transition:background 0.3s; }
-.card-body { padding:14px 16px 14px; }
+.card-top { height:3px; width:100%; transition:background 0.3s; background:var(--beige-2); }
+.card-body { padding:18px 20px 16px; }
 
+/* Título — bold leve, fonte maior */
 .c-title {
   font-family:'Barlow Condensed',sans-serif;
-  font-size:13px; font-weight:800; letter-spacing:1px;
-  text-transform:uppercase; color:var(--grafite); margin-bottom:2px;
+  font-size:15px; font-weight:600; letter-spacing:1px;
+  text-transform:uppercase; color:var(--grafite);
+  margin-bottom:3px;
 }
+/* Subtítulo — maior, normal */
 .c-sub {
-  font-size:10px; color:var(--txt-faint); margin-bottom:10px; line-height:1.4;
+  font-size:12px; font-weight:400;
+  color:var(--txt-faint); margin-bottom:12px; line-height:1.4;
 }
+/* Resultado — único bold pesado */
 .c-val {
   font-family:'Barlow Condensed',sans-serif;
-  font-size:44px; font-weight:900; color:var(--grafite);
-  line-height:1; margin-bottom:10px;
+  font-size:52px; font-weight:900;
+  color:var(--grafite); line-height:1; margin-bottom:12px;
 }
-.c-val .u { font-family:'Barlow',sans-serif; font-size:16px; font-weight:400; color:var(--txt-soft); }
-.c-val.faint { color:var(--beige-2); font-size:22px; letter-spacing:6px; }
+.c-val .u { font-family:'Barlow',sans-serif; font-size:18px; font-weight:400; color:var(--txt-soft); }
+.c-val.faint { color:var(--beige-2); font-size:24px; letter-spacing:6px; font-weight:400; }
 
-/* Mini funil inline — card Atendimento */
+/* Mini funil */
 .mini-funil {
-  display:flex; align-items:center; gap:6px;
-  margin-bottom:0;
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:11px; font-weight:600; color:var(--txt-faint);
+  display:flex; align-items:center; gap:5px; margin-bottom:12px;
+  font-family:'Barlow Condensed',sans-serif; font-size:12px; color:var(--txt-faint);
 }
-.mini-funil .mf-num {
-  font-size:12px; font-weight:800; color:var(--grafite);
-}
+.mini-funil .mf-num { font-size:13px; font-weight:700; color:var(--grafite); }
 .mini-funil .mf-arrow { color:var(--txt-faint); font-size:10px; }
-.mini-funil .mf-lbl { font-size:10px; font-weight:500; }
 
-/* Bezel conversão */
-.bezel-conv {
-  display:inline-flex; align-items:center; gap:4px;
-  border-radius:20px; padding:3px 10px; margin-bottom:8px;
-  background:rgba(232,150,10,0.10); border:1px solid rgba(232,150,10,0.22);
-  font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:800; color:var(--gold);
-}
-.bezel-conv small { font-size:9px; color:var(--txt-faint); font-weight:400; }
-
-/* Bezel meta */
+/* BEZEL — tonal, sem bold */
 .bezel {
-  display:inline-flex; align-items:center; gap:5px;
-  border-radius:20px; padding:3px 11px; margin-bottom:8px;
-  font-family:'Barlow Condensed',sans-serif; font-size:12px; font-weight:800;
-  border:1px solid transparent; transition:all 0.3s;
+  display:inline-flex; align-items:center; gap:4px;
+  border-radius:20px; padding:4px 11px; margin-bottom:10px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:12px; font-weight:500;
+  border:1px solid transparent;
+  transition:all 0.2s;
+  white-space:nowrap;
 }
-.bezel.green  { background:var(--bg-green);  color:var(--c-green);  border-color:var(--bd-green); }
-.bezel.yellow { background:var(--bg-yellow); color:var(--c-yellow); border-color:var(--bd-yellow); }
-.bezel.red    { background:var(--bg-red);    color:var(--c-red);    border-color:var(--bd-red); }
-.bezel.gray   { background:var(--bg-gray);   color:var(--c-gray);   border-color:var(--bd-gray); }
+/* Tonal dourado — conversões */
+.bezel.gold {
+  background:var(--bz-gold-bg); color:var(--bz-gold-txt);
+  border-color:var(--bz-gold-bd);
+}
+/* Tonal neutro — médias diárias e placeholders */
+.bezel.neu {
+  background:var(--bz-neu-bg); color:var(--bz-neu-txt);
+  border-color:var(--bz-neu-bd);
+}
 
 /* Barra de progresso */
-.prog-wrap {
-  margin-top:6px;
-  display:flex; align-items:center; gap:8px;
-}
-.prog-bar-bg {
-  flex:1; height:5px; border-radius:3px;
-  background:rgba(160,120,60,0.12); overflow:hidden;
-}
-.prog-bar-fill {
-  height:100%; border-radius:3px;
-  transition:width 0.5s ease, background 0.3s;
-  max-width:100%;
-}
-.prog-pct {
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:10px; font-weight:700; min-width:32px; text-align:right;
-  color:var(--txt-faint);
-}
+.prog-wrap { display:flex; align-items:center; gap:8px; margin-top:4px; }
+.prog-bar-bg { flex:1; height:4px; border-radius:3px; background:rgba(160,120,60,0.10); overflow:hidden; }
+.prog-bar-fill { height:100%; border-radius:3px; transition:width 0.5s ease, background 0.3s; max-width:100%; }
+.prog-pct { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; min-width:34px; text-align:right; color:var(--txt-faint); }
 
 /* CSAT */
 .csat-ph {
   display:flex; flex-direction:column; align-items:center; justify-content:center;
-  min-height:50px; margin-top:6px; gap:3px;
+  min-height:52px; margin-top:6px; gap:3px;
   background:repeating-linear-gradient(-45deg,transparent,transparent 8px,rgba(138,110,60,0.04) 8px,rgba(138,110,60,0.04) 16px);
   border-radius:6px; border:1px dashed rgba(138,110,60,0.18);
 }
 .csat-ph span { font-family:'Barlow Condensed',sans-serif; font-size:16px; font-weight:900; color:var(--beige-2); letter-spacing:5px; }
-.csat-ph small { font-size:9px; color:var(--txt-faint); font-style:italic; }
+.csat-ph small { font-size:10px; color:var(--txt-faint); font-style:italic; }
 
-.footer { text-align:right; padding:0 36px 36px; max-width:1400px; margin:0 auto; }
+.footer { text-align:right; padding:0 40px 36px; max-width:var(--mw); margin:0 auto; }
 .footer span { font-family:'Barlow Condensed',sans-serif; font-size:9px; color:var(--txt-faint); letter-spacing:1.5px; text-transform:uppercase; }
 
-@media(max-width:960px){
+@media(max-width:1100px){
   .grid-3{grid-template-columns:repeat(2,1fr);}
   .h-kpis{display:none;}
   .main,.header-inner,.filters{padding:16px;}
@@ -281,21 +195,9 @@ body {
       <div class="sub" id="header-sub">Período: fev. de 2026 · 708 atendimentos</div>
     </div>
     <div class="h-kpis">
-      <div class="hk hk-neu" id="hk-lit">
-        <div class="hk-l">Litros</div>
-        <div class="hk-v" id="hv-lit">—</div>
-        <div class="hk-trend neu" id="ht-lit">—</div>
-      </div>
-      <div class="hk hk-neu" id="hk-rec">
-        <div class="hk-l">Receita</div>
-        <div class="hk-v" id="hv-rec">—</div>
-        <div class="hk-trend neu" id="ht-rec">—</div>
-      </div>
-      <div class="hk hk-neu" id="hk-conv">
-        <div class="hk-l">Conversão</div>
-        <div class="hk-v" id="hv-conv">—</div>
-        <div class="hk-trend neu" id="ht-conv">orç → pedido</div>
-      </div>
+      <div class="hk hk-neu" id="hk-lit"><div class="hk-l">Litros</div><div class="hk-v" id="hv-lit">—</div><div class="hk-trend neu" id="ht-lit">—</div></div>
+      <div class="hk hk-neu" id="hk-rec"><div class="hk-l">Receita</div><div class="hk-v" id="hv-rec">—</div><div class="hk-trend neu" id="ht-rec">—</div></div>
+      <div class="hk hk-neu" id="hk-conv"><div class="hk-l">Conversão</div><div class="hk-v" id="hv-conv">—</div><div class="hk-trend neu" id="ht-conv">orç → pedido</div></div>
     </div>
   </div>
 </header>
@@ -313,20 +215,15 @@ body {
       <span class="f-label">Responsável</span>
       <select class="f-select" id="f-resp">
         <option value="">Todos</option>
-        <option>Taciana</option>
-        <option>Lídia</option>
-        <option>Raiza</option>
-        <option>Mirian</option>
-        <option>Marciano</option>
+        <option>Taciana</option><option>Lídia</option><option>Raiza</option>
+        <option>Mirian</option><option>Marciano</option>
       </select>
     </div>
     <div class="f-group">
       <span class="f-label">Estado</span>
       <select class="f-select" id="f-estado">
         <option value="">Todos</option>
-        <option>Vendida</option>
-        <option>Perdida</option>
-        <option>Em Andamento</option>
+        <option>Vendida</option><option>Perdida</option><option>Em Andamento</option>
       </select>
     </div>
     <button class="btn-filter" onclick="aplicar()">FILTRAR</button>
@@ -347,29 +244,31 @@ body {
         <div class="c-val faint">— — —</div>
       </div>
     </div>
-    <div class="card bg-cream">
-      <div class="card-top" id="ct-atend" style="background:var(--beige-2);"></div>
+
+    <div class="card">
+      <div class="card-top" id="ct-atend"></div>
       <div class="card-body">
         <div class="c-title">Atendimento</div>
         <div class="c-sub">Total de atendimentos únicos no canal</div>
         <div class="c-val" id="v-atend">—</div>
-        <div class="mini-funil" id="mini-funil">
-          <span class="mf-num" id="mf-atend">—</span><span class="mf-lbl">atend</span>
+        <div class="mini-funil">
+          <span class="mf-num" id="mf-atend">—</span><span>atend</span>
           <span class="mf-arrow">→</span>
-          <span class="mf-num" id="mf-orc">—</span><span class="mf-lbl">orc</span>
+          <span class="mf-num" id="mf-orc">—</span><span>orc</span>
           <span class="mf-arrow">→</span>
-          <span class="mf-num" id="mf-ped">—</span><span class="mf-lbl">ped</span>
+          <span class="mf-num" id="mf-ped">—</span><span>ped</span>
         </div>
+        <span class="bezel neu" id="bz-atend">— conv. sobre alcance</span>
       </div>
     </div>
-    <div class="card bg-cream">
+
+    <div class="card">
       <div class="card-top" id="ct-orc"></div>
       <div class="card-body">
         <div class="c-title">Orçamentos</div>
         <div class="c-sub">Proposta Comercial + etapas seguintes</div>
         <div class="c-val" id="v-orc">—</div>
-        <div class="bezel-conv"><span id="v-orc-conv">—</span><small>&nbsp;conversão atend→orc</small></div>
-        <span class="bezel gray" id="bz-orc">—</span>
+        <span class="bezel gold" id="bz-orc-conv">—</span>
         <div class="prog-wrap">
           <div class="prog-bar-bg"><div class="prog-bar-fill" id="pb-orc" style="width:0%;"></div></div>
           <span class="prog-pct" id="pp-orc">—</span>
@@ -386,34 +285,35 @@ body {
         <div class="c-title">Pedidos</div>
         <div class="c-sub">Deals fechados no período</div>
         <div class="c-val" id="v-ped">—</div>
-        <div class="bezel-conv"><span id="v-ped-conv">—</span><small>&nbsp;conversão orc→pedido</small></div>
-        <span class="bezel gray" id="bz-ped">—</span>
+        <span class="bezel gold" id="bz-ped-conv">—</span>
         <div class="prog-wrap">
           <div class="prog-bar-bg"><div class="prog-bar-fill" id="pb-ped" style="width:0%;"></div></div>
           <span class="prog-pct" id="pp-ped">—</span>
         </div>
       </div>
     </div>
+
     <div class="card">
       <div class="card-top" id="ct-lit"></div>
       <div class="card-body">
         <div class="c-title">Litros</div>
         <div class="c-sub">Volume total vendido no período</div>
         <div class="c-val" id="v-lit">—</div>
-        <span class="bezel gray" id="bz-lit">—</span>
+        <span class="bezel neu" id="bz-lit-avg">—</span>
         <div class="prog-wrap">
           <div class="prog-bar-bg"><div class="prog-bar-fill" id="pb-lit" style="width:0%;"></div></div>
           <span class="prog-pct" id="pp-lit">—</span>
         </div>
       </div>
     </div>
+
     <div class="card">
       <div class="card-top" id="ct-rec"></div>
       <div class="card-body">
         <div class="c-title">Receita</div>
         <div class="c-sub">Faturamento total do período</div>
-        <div class="c-val" id="v-rec" style="font-size:36px;">—</div>
-        <span class="bezel gray" id="bz-rec">—</span>
+        <div class="c-val" id="v-rec" style="font-size:40px;">—</div>
+        <span class="bezel neu" id="bz-rec-avg">—</span>
         <div class="prog-wrap">
           <div class="prog-bar-bg"><div class="prog-bar-fill" id="pb-rec" style="width:0%;"></div></div>
           <span class="prog-pct" id="pp-rec">—</span>
@@ -422,30 +322,30 @@ body {
     </div>
   </div>
 
-  <!-- L3 -->
+  <!-- L3 — fundo branco -->
   <div class="grid-3">
-    <div class="card bg-beige">
+    <div class="card">
       <div class="card-top" style="background:var(--beige-2);"></div>
       <div class="card-body">
         <div class="c-title">Ticket Médio por Pedido</div>
         <div class="c-sub">Receita ÷ pedidos fechados</div>
-        <div class="c-val" id="v-tm-ped" style="font-size:40px;">—</div>
+        <div class="c-val" id="v-tm-ped" style="font-size:46px;">—</div>
       </div>
     </div>
-    <div class="card bg-beige">
+    <div class="card">
       <div class="card-top" style="background:var(--beige-2);"></div>
       <div class="card-body">
         <div class="c-title">Ticket Médio por Litros</div>
         <div class="c-sub">Volume médio por evento</div>
-        <div class="c-val" id="v-tm-lit">—</div>
+        <div class="c-val" id="v-tm-lit" style="font-size:46px;">—</div>
       </div>
     </div>
-    <div class="card bg-beige">
+    <div class="card">
       <div class="card-top" style="background:var(--beige-2);"></div>
       <div class="card-body">
         <div class="c-title">Receita por Litro</div>
         <div class="c-sub">Yield médio de faturamento</div>
-        <div class="c-val" id="v-rec-lit" style="font-size:40px;">—</div>
+        <div class="c-val" id="v-rec-lit" style="font-size:46px;">—</div>
       </div>
     </div>
   </div>
@@ -491,83 +391,70 @@ const PART = {"L\u00eddia": 0.33136094674556216, "Raiza": 0.3136094674556213, "T
 const METAS = { orc:750, lit:8208, rec:140605.85, ped:169 };
 const etapasOrc = ['Proposta Comercial','Cadastro Pedido','Logística / Entrega','Pós Venda e Fidelização'];
 
+const BAR_COLORS = {
+  green:'var(--c-green)', yellow:'#D4A000', red:'var(--c-red)', gray:'var(--c-gray)'
+};
+
+function diasNoPeriodo(de, ate) {
+  return Math.max(1, Math.round((new Date(ate) - new Date(de)) / 86400000) + 1);
+}
+
 function metaProRata(metaTotal, de, ate, resp) {
-  // Se filtro por responsável, ajusta meta pela participação histórica
   let meta = metaTotal;
   if(resp && PART[resp]) meta = metaTotal * PART[resp];
-
   const hoje = new Date();
   const inicio = new Date(de);
   const fim = new Date(ate);
-  const diasPeriodo = Math.max(1, Math.round((fim - inicio) / 86400000) + 1);
+  const diasPeriodo = Math.max(1, Math.round((fim-inicio)/86400000)+1);
   const fimEfetivo = fim < hoje ? fim : hoje;
-  const diasPassados = Math.max(1, Math.round((fimEfetivo - inicio) / 86400000) + 1);
+  const diasPassados = Math.max(1, Math.round((fimEfetivo-inicio)/86400000)+1);
   return meta * (diasPassados / diasPeriodo);
 }
 
 function statusMeta(real, mr) {
   if(!mr) return 'gray';
   const p = (real/mr)*100;
-  if(p >= 100) return 'green';
-  if(p >= 70)  return 'yellow';
+  if(p>=100) return 'green';
+  if(p>=70)  return 'yellow';
   return 'red';
-}
-
-const ARROWS = { green:'▲', yellow:'▼', red:'▼', gray:'→' };
-const BAR_COLORS = {
-  green:  'var(--c-green)',
-  yellow: '#D4A000',
-  red:    'var(--c-red)',
-  gray:   'var(--c-gray)'
-};
-
-function setBezel(id, real, mr) {
-  const el = document.getElementById(id);
-  if(!el) return;
-  if(!mr) { el.className='bezel gray'; el.textContent='— meta não definida'; return; }
-  const s = statusMeta(real, mr);
-  const diff = ((real/mr)-1)*100;
-  const sign = diff >= 0 ? '+' : '';
-  el.className = `bezel ${s}`;
-  el.textContent = `${ARROWS[s]} ${sign}${diff.toFixed(1)}% vs meta`;
 }
 
 function setProgress(barId, pctId, real, mr) {
   const bar = document.getElementById(barId);
   const pct = document.getElementById(pctId);
-  if(!bar || !pct) return;
+  if(!bar||!pct) return;
   if(!mr) { bar.style.width='0%'; pct.textContent='—'; return; }
   const s = statusMeta(real, mr);
-  const p = Math.min(100, (real/mr)*100);
-  bar.style.width = p.toFixed(1) + '%';
+  const p = Math.min(100,(real/mr)*100);
+  bar.style.width = p.toFixed(1)+'%';
   bar.style.background = BAR_COLORS[s];
   pct.style.color = BAR_COLORS[s];
-  pct.textContent = p.toFixed(0) + '%';
+  pct.textContent = p.toFixed(0)+'%';
 }
 
 function setCardTop(id, status) {
   const el = document.getElementById(id);
-  if(!el) return;
-  el.style.background = BAR_COLORS[status] || 'var(--beige-2)';
+  if(el) el.style.background = BAR_COLORS[status]||'var(--beige-2)';
 }
 
-function setHKpi(boxId, valId, trendId, val, mr, fmt) {
-  const box = document.getElementById(boxId);
-  const vEl = document.getElementById(valId);
-  const tEl = document.getElementById(trendId);
+function setHKpi(boxId, valId, trendId, val, mr, fmtFn) {
+  const box=document.getElementById(boxId);
+  const vEl=document.getElementById(valId);
+  const tEl=document.getElementById(trendId);
   if(!vEl||!tEl||!box) return;
-  vEl.innerHTML = fmt(val);
-  const s = mr ? statusMeta(val, mr) : 'neu';
+  vEl.innerHTML = fmtFn(val);
+  const s = mr ? statusMeta(val,mr) : 'neu';
   const diff = mr ? ((val/mr-1)*100) : 0;
-  const sign = diff >= 0 ? '+' : '';
-  const cls = {green:'up',yellow:'warn',red:'down',neu:'neu',gray:'neu'};
-  tEl.className = `hk-trend ${cls[s]||'neu'}`;
-  tEl.textContent = mr ? `${ARROWS[s]||'→'} ${sign}${Math.abs(diff).toFixed(1)}% vs meta` : '—';
-  box.className = `hk hk-${s==='green'?'up':s==='yellow'?'warn':s==='red'?'down':'neu'}`;
+  const sign = diff>=0?'+':'';
+  const cls={green:'up',yellow:'warn',red:'down',neu:'neu',gray:'neu'};
+  const arrows={green:'▲',yellow:'▼',red:'▼',neu:'—',gray:'→'};
+  tEl.className=`hk-trend ${cls[s]||'neu'}`;
+  tEl.textContent = mr ? `${arrows[s]} ${sign}${Math.abs(diff).toFixed(1)}% vs meta` : '—';
+  box.className=`hk hk-${s==='green'?'up':s==='yellow'?'warn':s==='red'?'down':'neu'}`;
 }
 
 function fmt(n)  { return n.toLocaleString('pt-BR'); }
-function fmtR(n) { return 'R$ ' + fmt(Math.round(n)); }
+function fmtR(n) { return 'R$ '+fmt(Math.round(n)); }
 
 function aplicar() {
   const de     = document.getElementById('f-de').value;
@@ -576,36 +463,40 @@ function aplicar() {
   const estado = document.getElementById('f-estado').value;
 
   const rdBase = RD.filter(d => {
-    if(de  && d.DataStr < de)  return false;
-    if(ate && d.DataStr > ate) return false;
+    if(de  && d.DataStr < de)   return false;
+    if(ate && d.DataStr > ate)  return false;
     if(resp && d.Resp !== resp) return false;
     return true;
   });
 
-  const rd = rdBase.filter(d => !estado || d.Estado === estado);
-
   const ez = EZ.filter(d => {
-    if(de  && d.DataStr < de)  return false;
-    if(ate && d.DataStr > ate) return false;
+    if(de  && d.DataStr < de)   return false;
+    if(ate && d.DataStr > ate)  return false;
     if(resp && d.Agente !== resp) return false;
     return true;
   });
 
-  const orcamentos = rdBase.filter(d => etapasOrc.includes(d.Etapa) && d['Valor Único'] > 0);
-  const vendidas   = rdBase.filter(d => d.Estado === 'Vendida');
+  const orcamentos = rdBase.filter(d => etapasOrc.includes(d.Etapa) && d['Valor Único']>0);
+  const vendidas   = rdBase.filter(d => d.Estado==='Vendida');
+  const rdFiltrado = estado ? rdBase.filter(d => d.Estado===estado) : rdBase;
 
   const totalAtend = ez.length;
   const totalOrc   = orcamentos.length;
   const totalPed   = vendidas.length;
-  const totalLit   = vendidas.reduce((s,d) => s+(d.Litragem_num||0), 0);
-  const totalRec   = vendidas.reduce((s,d) => s+(d['Valor Único']||0), 0);
+  const totalLit   = vendidas.reduce((s,d)=>s+(d.Litragem_num||0),0);
+  const totalRec   = vendidas.reduce((s,d)=>s+(d['Valor Único']||0),0);
   const tmPed      = totalPed ? totalRec/totalPed : 0;
   const tmLit      = totalPed ? totalLit/totalPed : 0;
   const recLit     = totalLit ? totalRec/totalLit : 0;
-  const convOrc    = totalAtend ? (totalOrc/totalAtend*100).toFixed(1)+'%' : '—';
-  const convPed    = totalOrc   ? (totalPed/totalOrc*100).toFixed(1)+'%'  : '—';
 
-  // Pro-rata com participação individual se filtrado
+  const dias = diasNoPeriodo(de, ate);
+  const avgLit = totalLit ? totalLit/dias : 0;
+  const avgRec = totalRec ? totalRec/dias : 0;
+
+  const convAtend = '— conv. sobre alcance'; // aguarda planilha
+  const convOrc   = totalAtend ? (totalOrc/totalAtend*100).toFixed(1)+'% atend→orc' : '—';
+  const convPed   = totalAtend ? (totalPed/totalAtend*100).toFixed(1)+'% atend→ped' : '—';
+
   const mrOrc = metaProRata(METAS.orc, de, ate, resp);
   const mrLit = metaProRata(METAS.lit, de, ate, resp);
   const mrRec = metaProRata(METAS.rec, de, ate, resp);
@@ -617,16 +508,14 @@ function aplicar() {
   const sPed = statusMeta(totalPed, mrPed);
 
   // Valores
-  document.getElementById('v-atend').textContent    = fmt(totalAtend);
-  document.getElementById('v-orc').textContent      = fmt(totalOrc);
-  document.getElementById('v-orc-conv').textContent = convOrc;
-  document.getElementById('v-ped').textContent      = fmt(totalPed);
-  document.getElementById('v-ped-conv').textContent = convPed;
-  document.getElementById('v-lit').innerHTML        = fmt(Math.round(totalLit))+'<span class="u"> L</span>';
-  document.getElementById('v-rec').textContent      = fmtR(totalRec);
-  document.getElementById('v-tm-ped').textContent   = fmtR(tmPed);
-  document.getElementById('v-tm-lit').innerHTML     = tmLit.toFixed(1)+'<span class="u"> L</span>';
-  document.getElementById('v-rec-lit').textContent  = 'R$ '+recLit.toFixed(2).replace('.',',');
+  document.getElementById('v-atend').textContent   = fmt(totalAtend);
+  document.getElementById('v-orc').textContent     = fmt(totalOrc);
+  document.getElementById('v-ped').textContent     = fmt(totalPed);
+  document.getElementById('v-lit').innerHTML       = fmt(Math.round(totalLit))+'<span class="u"> L</span>';
+  document.getElementById('v-rec').textContent     = fmtR(totalRec);
+  document.getElementById('v-tm-ped').textContent  = fmtR(tmPed);
+  document.getElementById('v-tm-lit').innerHTML    = tmLit.toFixed(1)+'<span class="u"> L</span>';
+  document.getElementById('v-rec-lit').textContent = 'R$ '+recLit.toFixed(2).replace('.',',');
 
   // Mini funil
   document.getElementById('mf-atend').textContent = fmt(totalAtend);
@@ -634,31 +523,30 @@ function aplicar() {
   document.getElementById('mf-ped').textContent   = fmt(totalPed);
 
   // Bezels
-  setBezel('bz-orc', totalOrc, mrOrc);
-  setBezel('bz-ped', totalPed, mrPed);
-  setBezel('bz-lit', totalLit, mrLit);
-  setBezel('bz-rec', totalRec, mrRec);
+  document.getElementById('bz-atend').textContent    = convAtend;
+  document.getElementById('bz-orc-conv').textContent = convOrc;
+  document.getElementById('bz-ped-conv').textContent = convPed;
+  document.getElementById('bz-lit-avg').textContent  = fmt(Math.round(avgLit))+' L/dia (média)';
+  document.getElementById('bz-rec-avg').textContent  = fmtR(avgRec)+'/dia (média)';
 
-  // Barras
+  // Barras + topo
   setProgress('pb-orc','pp-orc', totalOrc, mrOrc);
   setProgress('pb-ped','pp-ped', totalPed, mrPed);
   setProgress('pb-lit','pp-lit', totalLit, mrLit);
   setProgress('pb-rec','pp-rec', totalRec, mrRec);
-
-  // Bordas topo
+  setCardTop('ct-atend','gray');
   setCardTop('ct-orc', sOrc);
   setCardTop('ct-ped', sPed);
   setCardTop('ct-lit', sLit);
   setCardTop('ct-rec', sRec);
 
-  // Header
-  setHKpi('hk-lit','hv-lit','ht-lit', totalLit, mrLit, v => fmt(Math.round(v))+'<span class="u"> L</span>');
-  setHKpi('hk-rec','hv-rec','ht-rec', totalRec, mrRec, v => 'R$'+Math.round(v/1000)+'k');
-  document.getElementById('hv-conv').textContent = convPed;
+  // Header KPIs
+  setHKpi('hk-lit','hv-lit','ht-lit', totalLit, mrLit, v=>fmt(Math.round(v))+'<span class="u"> L</span>');
+  setHKpi('hk-rec','hv-rec','ht-rec', totalRec, mrRec, v=>'R$'+Math.round(v/1000)+'k');
+  document.getElementById('hv-conv').textContent = totalAtend ? (totalPed/totalOrc*100).toFixed(1)+'%' : '—';
   document.getElementById('ht-conv').textContent = 'orç → pedido';
 
-  // Sub header
-  const nome = resp || 'Todos os responsáveis';
+  const nome = resp||'Todos os responsáveis';
   document.getElementById('header-sub').textContent =
     `Filtro: ${nome} · ${fmt(totalAtend)} atendimentos · ${fmt(totalPed)} pedidos`;
 }
