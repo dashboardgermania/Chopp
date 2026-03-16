@@ -101,7 +101,21 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
   flex-direction:column;
 }
 .c-header{flex-shrink:0;margin-bottom:0;}
-.c-title{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--grafite);}
+.c-title{
+  display:inline-flex;align-items:center;
+  font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  border-radius:20px;padding:3px 11px;
+  margin-bottom:1px;
+}
+/* L1 — topo de funil — azul-acinzentado */
+.pill-l1{background:rgba(91,127,166,0.12);color:#3D6490;border:1px solid rgba(91,127,166,0.22);}
+/* L2 — conversão/resultado — verde-musgo */
+.pill-l2{background:rgba(74,124,89,0.12);color:#2E6644;border:1px solid rgba(74,124,89,0.22);}
+/* L3 — eficiência/performance — dourado */
+.pill-l3{background:rgba(138,106,32,0.12);color:#6B4E10;border:1px solid rgba(138,106,32,0.22);}
+/* L4 — CSAT — cinza */
+.pill-l4{background:rgba(122,122,122,0.10);color:#666;border:1px solid rgba(122,122,122,0.18);}
 .c-sub{font-size:11px;font-weight:400;color:var(--txt-faint);line-height:1.3;margin-top:1px;}
 
 /* Bloco central — val+bezel agrupados e centralizados */
@@ -141,15 +155,14 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 /* Bezel — imediatamente abaixo do valor, não estica */
 .bezel{
   display:inline-flex;align-items:center;gap:3px;
-  border-radius:20px;padding:3px 10px;
-  font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:500;
-  border:1px solid transparent;cursor:default;align-self:flex-start;
-  transition:filter 0.15s,padding 0.12s,transform 0.12s;
+  padding:0;
+  font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:400;
+  color:#9A9A9A;
+  background:transparent;border:none;
+  cursor:default;align-self:flex-start;
   white-space:nowrap;
 }
-.bezel:hover{filter:brightness(0.93);padding:3px 12px;transform:translateY(-1px);}
-.bezel.warm{background:var(--bz-neu-bg);color:var(--bz-neu-txt);border-color:var(--bz-neu-bd);}
-.bezel.neu{background:var(--bz-neu-bg);color:var(--bz-neu-txt);border-color:var(--bz-neu-bd);}
+.bezel.warm,.bezel.neu{background:transparent;color:#9A9A9A;border:none;}
 
 /* CÍRCULO — centralizado, stroke 7px */
 .circ-wrap{
@@ -173,7 +186,21 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 
 /* TEMPLATE C */
 .card-c{height:var(--h-c);padding:12px 15px 12px;display:flex;flex-direction:column;background:var(--card-bg-alt);}
-.card-c .c-title{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--grafite);}
+.card-c .c-title{
+  display:inline-flex;align-items:center;
+  font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  border-radius:20px;padding:3px 11px;
+  margin-bottom:1px;
+}
+/* L1 — topo de funil — azul-acinzentado */
+.pill-l1{background:rgba(91,127,166,0.12);color:#3D6490;border:1px solid rgba(91,127,166,0.22);}
+/* L2 — conversão/resultado — verde-musgo */
+.pill-l2{background:rgba(74,124,89,0.12);color:#2E6644;border:1px solid rgba(74,124,89,0.22);}
+/* L3 — eficiência/performance — dourado */
+.pill-l3{background:rgba(138,106,32,0.12);color:#6B4E10;border:1px solid rgba(138,106,32,0.22);}
+/* L4 — CSAT — cinza */
+.pill-l4{background:rgba(122,122,122,0.10);color:#666;border:1px solid rgba(122,122,122,0.18);}
 .card-c .c-sub{font-size:11px;color:var(--txt-faint);margin-top:1px;}
 .csat-ph{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;margin-top:6px;background:repeating-linear-gradient(-45deg,transparent,transparent 7px,rgba(120,100,60,0.04) 7px,rgba(120,100,60,0.04) 14px);border-radius:5px;border:1px dashed rgba(160,130,80,0.15);}
 .csat-ph span{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;color:rgba(200,185,160,0.5);letter-spacing:5px;}
@@ -185,8 +212,8 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .row:nth-child(2) .card:nth-child(1){animation-delay:0.13s;} .row:nth-child(2) .card:nth-child(2){animation-delay:0.17s;} .row:nth-child(2) .card:nth-child(3){animation-delay:0.21s;}
 .row:nth-child(3) .card:nth-child(1){animation-delay:0.23s;} .row:nth-child(3) .card:nth-child(2){animation-delay:0.27s;} .row:nth-child(3) .card:nth-child(3){animation-delay:0.31s;}
 
-.footer{text-align:right;padding:0 var(--pad-h) 28px;max-width:var(--mw);margin:0 auto;}
-.footer span{font-family:'Barlow Condensed',sans-serif;font-size:8px;color:var(--txt-faint);letter-spacing:1.5px;text-transform:uppercase;}
+.footer-wrap{background:var(--red);}.footer{text-align:right;padding:10px var(--pad-h);max-width:var(--mw);margin:0 auto;}
+.footer span{font-family:'Barlow Condensed',sans-serif;font-size:8px;color:rgba(255,255,255,0.50);letter-spacing:1.5px;text-transform:uppercase;}
 @media(max-width:1100px){.row{grid-template-columns:repeat(2,1fr);} .h-kpis{display:none;} .main,.header-inner,.filters{padding:14px;}}
 </style>
 </head>
@@ -237,7 +264,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
   <div class="row">
     <div class="card" id="c-alc" data-s="none">
       <div class="card-ab">
-        <div class="c-header"><div class="c-title">Alcance</div><div class="c-sub">Total de leads captados no período</div></div>
+        <div class="c-header"><div class="c-title pill-l1">Alcance</div><div class="c-sub">Total de leads captados no período</div></div>
         <div class="c-center">
           <div class="c-val-block">
             <div class="c-val" id="v-alc">9.632</div>
@@ -249,7 +276,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
     </div>
     <div class="card" id="c-at" data-s="none">
       <div class="card-ab">
-        <div class="c-header"><div class="c-title">Atendimento</div><div class="c-sub">Atendimentos únicos no canal</div></div>
+        <div class="c-header"><div class="c-title pill-l1">Atendimento</div><div class="c-sub">Atendimentos únicos no canal</div></div>
         <div class="c-center">
           <div class="c-val-block">
             <div class="c-val" id="v-at">—</div>
@@ -261,7 +288,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
     </div>
     <div class="card" id="c-orc" data-s="gray">
       <div class="card-ab">
-        <div class="c-header"><div class="c-title">Orçamentos</div><div class="c-sub">Proposta Comercial + etapas seguintes</div></div>
+        <div class="c-header"><div class="c-title pill-l1">Orçamentos</div><div class="c-sub">Proposta Comercial + etapas seguintes</div></div>
         <div class="c-center">
           <div class="c-val-block">
             <div class="c-val" id="v-orc">—</div>
@@ -277,7 +304,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
   <div class="row">
     <div class="card" id="c-ped" data-s="gray">
       <div class="card-ab">
-        <div class="c-header"><div class="c-title">Pedidos</div><div class="c-sub">Deals fechados no período</div></div>
+        <div class="c-header"><div class="c-title pill-l2">Pedidos</div><div class="c-sub">Deals fechados no período</div></div>
         <div class="c-center">
           <div class="c-val-block">
             <div class="c-val" id="v-ped">—</div>
@@ -289,7 +316,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
     </div>
     <div class="card" id="c-lit" data-s="gray">
       <div class="card-ab">
-        <div class="c-header"><div class="c-title">Litros</div><div class="c-sub">Volume total vendido no período</div></div>
+        <div class="c-header"><div class="c-title pill-l2">Litros</div><div class="c-sub">Volume total vendido no período</div></div>
         <div class="c-center">
           <div class="c-val-block">
             <div class="c-val" id="v-lit">—</div>
@@ -301,7 +328,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
     </div>
     <div class="card" id="c-rec" data-s="gray">
       <div class="card-ab">
-        <div class="c-header"><div class="c-title">Receita</div><div class="c-sub">Faturamento total do período</div></div>
+        <div class="c-header"><div class="c-title pill-l2">Receita</div><div class="c-sub">Faturamento total do período</div></div>
         <div class="c-center">
           <div class="c-val-block">
             <div class="c-val" id="v-rec" style="font-size:34px;">—</div>
@@ -317,7 +344,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
   <div class="row">
     <div class="card" data-s="none">
       <div class="card-ab">
-        <div class="c-header"><div class="c-title">Ticket Médio / Pedido</div><div class="c-sub">Receita ÷ pedidos · variação semanal fev/26</div></div>
+        <div class="c-header"><div class="c-title pill-l3">Ticket Médio / Pedido</div><div class="c-sub">Receita ÷ pedidos · variação semanal fev/26</div></div>
         <div class="c-center">
           <div class="c-val-block">
             <div class="c-val" id="v-tp" style="font-size:36px;">—</div>
@@ -329,7 +356,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
     </div>
     <div class="card" data-s="none">
       <div class="card-ab">
-        <div class="c-header"><div class="c-title">Ticket Médio / Litros</div><div class="c-sub">Volume médio por evento · variação semanal fev/26</div></div>
+        <div class="c-header"><div class="c-title pill-l3">Ticket Médio / Litros</div><div class="c-sub">Volume médio por evento · variação semanal fev/26</div></div>
         <div class="c-center">
           <div class="c-val-block">
             <div class="c-val" id="v-tl" style="font-size:36px;">—</div>
@@ -341,7 +368,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
     </div>
     <div class="card" data-s="none">
       <div class="card-ab">
-        <div class="c-header"><div class="c-title">Receita / Litro</div><div class="c-sub">Yield médio de faturamento · variação semanal fev/26</div></div>
+        <div class="c-header"><div class="c-title pill-l3">Receita / Litro</div><div class="c-sub">Yield médio de faturamento · variação semanal fev/26</div></div>
         <div class="c-center">
           <div class="c-val-block">
             <div class="c-val" id="v-rl" style="font-size:36px;">—</div>
@@ -355,14 +382,14 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 
   <!-- ROW 4 — CSAT -->
   <div class="row">
-    <div class="card" data-s="none"><div class="card-c"><div class="c-title">Total de Avaliações</div><div class="c-sub">Pesquisa de satisfação CSAT</div><div class="csat-ph"><span>— —</span><small>Disponível ao fim do mês</small></div></div></div>
-    <div class="card" data-s="none"><div class="card-c"><div class="c-title">% Insatisfeitos</div><div class="c-sub">Insatisfeito + Totalmente Insatisfeito</div><div class="csat-ph"><span>— —</span><small>Disponível ao fim do mês</small></div></div></div>
-    <div class="card" data-s="none"><div class="card-c"><div class="c-title">% Satisfeitos</div><div class="c-sub">Satisfeito + Totalmente Satisfeito</div><div class="csat-ph"><span>— —</span><small>Disponível ao fim do mês</small></div></div></div>
+    <div class="card" data-s="none"><div class="card-c"><div class="c-title pill-l4">Total de Avaliações</div><div class="c-sub">Pesquisa de satisfação CSAT</div><div class="csat-ph"><span>— —</span><small>Disponível ao fim do mês</small></div></div></div>
+    <div class="card" data-s="none"><div class="card-c"><div class="c-title pill-l4">% Insatisfeitos</div><div class="c-sub">Insatisfeito + Totalmente Insatisfeito</div><div class="csat-ph"><span>— —</span><small>Disponível ao fim do mês</small></div></div></div>
+    <div class="card" data-s="none"><div class="card-c"><div class="c-title pill-l4">% Satisfeitos</div><div class="c-sub">Satisfeito + Totalmente Satisfeito</div><div class="csat-ph"><span>— —</span><small>Disponível ao fim do mês</small></div></div></div>
   </div>
 
 </div>
 
-<div class="footer">
+<div class="footer-wrap"><div class="footer">
   <span>RD Station + EZ Atendimento &nbsp;·&nbsp; Lig Chopp Germânia &nbsp;·&nbsp; Fev/2026</span>
 </div>
 
