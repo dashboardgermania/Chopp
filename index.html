@@ -56,7 +56,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .accent-bar{height:3px;background:linear-gradient(90deg,var(--red-dk) 0%,var(--gold) 25%,var(--gold-lt) 50%,var(--gold) 75%,var(--red-dk) 100%);}
 
 /* FILTROS */
-.filters-wrap{background:#C83020;border-bottom:none;box-shadow:none;margin-top:0;margin-bottom:0;width:100%;}
+.filters-wrap{background:#DFD0B0;border-bottom:none;box-shadow:none;margin-top:0;margin-bottom:0;width:100%;}
 
 /* ABAS */
 .tabs-wrap{background:var(--red);width:100%;border-top:1px solid rgba(255,255,255,0.10);}
@@ -75,27 +75,27 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 }
 .tab:hover{color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.08);}
 .tab.active{
-  background:#C83020;
-  color:#FFF;
-  border-color:rgba(255,255,255,0.15);
+  background:#DFD0B0;
+  color:var(--red);
+  border-color:rgba(180,150,100,0.20);
   font-weight:800;
 }
 .filters{max-width:var(--mw);margin:0 auto;padding:8px var(--pad-h);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .f-group{display:flex;align-items:center;gap:6px;}
-.f-lbl{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.55);white-space:nowrap;}
-.f-input,.f-sel{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;color:var(--grafite);background:rgba(255,255,255,0.92);border:1px solid rgba(255,255,255,0.20);border-radius:5px;padding:4px 8px;outline:none;transition:border-color 0.15s;}
+.f-lbl{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(60,30,10,0.60);white-space:nowrap;}
+.f-input,.f-sel{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;color:var(--grafite);background:rgba(255,255,255,0.75);border:1px solid rgba(140,100,40,0.18);border-radius:5px;padding:4px 8px;outline:none;transition:border-color 0.15s;}
 .f-input:focus,.f-sel:focus{border-color:var(--gold);}
-.f-sep{color:rgba(255,255,255,0.40);font-size:9px;}
+.f-sep{color:rgba(60,30,10,0.35);font-size:9px;}
 .btn-f{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:var(--red);color:#FFF;border:none;border-radius:5px;padding:5px 14px;cursor:pointer;transition:background 0.15s,transform 0.1s;}
 .btn-f:hover{background:var(--red-dk);transform:translateY(-1px);} .btn-f:active{transform:translateY(0);}
-.btn-c{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:transparent;color:rgba(255,255,255,0.75);border:1px solid rgba(255,255,255,0.30);border-radius:5px;padding:4px 10px;cursor:pointer;transition:all 0.15s;}
+.btn-c{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:transparent;color:rgba(60,30,10,0.70);border:1px solid rgba(140,100,40,0.22);border-radius:5px;padding:4px 10px;cursor:pointer;transition:all 0.15s;}
 .btn-c:hover{border-color:var(--txt-mid);}
-.btn-sh{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;background:transparent;color:rgba(255,255,255,0.65);border:1px solid rgba(255,255,255,0.25);border-radius:5px;padding:3px 9px;cursor:pointer;transition:all 0.15s;}
+.btn-sh{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;background:transparent;color:rgba(60,30,10,0.65);border:1px solid rgba(140,100,40,0.20);border-radius:5px;padding:3px 9px;cursor:pointer;transition:all 0.15s;}
 .btn-sh:hover{background:var(--gold);color:#FFF;border-color:var(--gold);}
 .btn-sh.active{background:var(--gold);color:#FFF;border-color:var(--gold);}
 .f-shortcuts{gap:4px;margin-right:8px;}
-.f-upd{margin-left:auto;font-family:'Barlow Condensed',sans-serif;font-size:8px;letter-spacing:1px;color:rgba(255,255,255,0.35);font-style:italic;}
-.f-pipe{color:rgba(255,255,255,0.20);font-size:18px;font-weight:300;padding:0 6px;line-height:1;}
+.f-upd{margin-left:auto;font-family:'Barlow Condensed',sans-serif;font-size:8px;letter-spacing:1px;color:rgba(60,30,10,0.45);font-style:italic;}
+.f-pipe{color:rgba(60,30,10,0.18);font-size:18px;font-weight:300;padding:0 6px;line-height:1;}
 
 /* MAIN */
 .main{max-width:var(--mw);margin:0 auto;padding:16px var(--pad-h) 16px;flex:1;width:100%;}
@@ -248,8 +248,8 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .row:nth-child(2) .card:nth-child(1){animation-delay:0.13s;} .row:nth-child(2) .card:nth-child(2){animation-delay:0.17s;} .row:nth-child(2) .card:nth-child(3){animation-delay:0.21s;}
 .row:nth-child(3) .card:nth-child(1){animation-delay:0.23s;} .row:nth-child(3) .card:nth-child(2){animation-delay:0.27s;} .row:nth-child(3) .card:nth-child(3){animation-delay:0.31s;}
 
-.footer-wrap{background:#111111;margin-top:auto;width:100%;}.footer{text-align:right;padding:10px var(--pad-h);max-width:var(--mw);margin:0 auto;}
-.footer span{font-family:'Barlow Condensed',sans-serif;font-size:8px;color:rgba(255,255,255,0.55);letter-spacing:1.5px;text-transform:uppercase;}
+.footer-wrap{background:#DFD0B0;margin-top:auto;width:100%;}.footer{text-align:right;padding:10px var(--pad-h);max-width:var(--mw);margin:0 auto;}
+.footer span{font-family:'Barlow Condensed',sans-serif;font-size:8px;color:var(--red);letter-spacing:1.5px;text-transform:uppercase;}
 
 @media(min-width:1400px){
   .filters{padding:10px var(--pad-h);}
@@ -269,7 +269,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
     <div class="h-div"></div>
     <div class="h-brand">
       <div class="eyebrow">Germânia · Cervejaria · Dashboard Comercial</div>
-      <h1><em>CHOPP</em> | LIG CHOPP GERMÂNIA</h1>
+      <h1 style="color:var(--gold-lt);">LIG CHOPP GERMÂNIA</h1>
       <div class="sub" id="h-sub">Período: fev. de 2026</div>
     </div>
     <div class="h-kpis-wrap">
