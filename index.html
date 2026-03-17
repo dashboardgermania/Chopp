@@ -41,13 +41,13 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .h-kpis-wrap{margin-left:auto;display:flex;flex-direction:row;align-items:center;gap:20px;align-self:center;}
 .h-resumo-lbl{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.32);white-space:nowrap;}
 .h-kpis{display:flex;gap:6px;}
-.hk{background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:10px 18px;text-align:center;min-width:130px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;transition:background 0.2s;}
+.hk{background:rgba(0,0,0,0.22);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:12px 28px;text-align:center;min-width:160px;flex-shrink:0;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;transition:background 0.2s;}
 .hk:hover{background:rgba(0,0,0,0.32);}
 .hk::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;border-radius:0 0 var(--radius) var(--radius);}
 .hk.up::after{background:var(--s-green);opacity:0.7;} .hk.down::after{background:var(--s-red);opacity:0.7;}
 .hk.warn::after{background:#C89000;opacity:0.7;} .hk.neu::after{background:rgba(255,255,255,0.10);}
 .hk-l{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-bottom:4px;}
-.hk-v{font-family:'Barlow Condensed',sans-serif;font-size:34px;font-weight:900;color:var(--gold-lt);line-height:1;margin-bottom:3px;transition:transform 0.2s;}
+.hk-v{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:900;color:var(--gold-lt);line-height:1;margin-bottom:0;transition:transform 0.2s;}
 .hk:hover .hk-v{transform:scale(1.04);}
 .hk-v .u{font-size:12px;opacity:0.7;font-weight:600;}
 .hk-t{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:600;}
@@ -89,7 +89,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .btn-f{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:var(--red);color:#FFF;border:none;border-radius:5px;padding:5px 14px;cursor:pointer;transition:background 0.15s,transform 0.1s;}
 .btn-f:hover{background:var(--red-dk);transform:translateY(-1px);} .btn-f:active{transform:translateY(0);}
 .btn-c{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:transparent;color:rgba(60,30,10,0.70);border:1px solid rgba(140,100,40,0.22);border-radius:5px;padding:4px 10px;cursor:pointer;transition:all 0.15s;}
-.btn-c:hover{border-color:var(--txt-mid);}
+.btn-c:hover{background:var(--gold-lt);border-color:var(--gold-lt);}
 .btn-sh{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;background:transparent;color:rgba(60,30,10,0.65);border:1px solid rgba(140,100,40,0.20);border-radius:5px;padding:3px 9px;cursor:pointer;transition:all 0.15s;}
 .btn-sh:hover{background:var(--gold);color:#FFF;border-color:var(--gold);}
 .btn-sh.active{background:var(--gold);color:#FFF;border-color:var(--gold);}
@@ -175,7 +175,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 }
 .c-val{
   font-family:'Barlow Condensed',sans-serif;
-  font-size:46px;font-weight:900;color:#2E2E2E;
+  font-size:46px;font-weight:900;color:#1A1208;
   line-height:1;flex-shrink:0;
   transition:transform 0.15s;
 }
@@ -211,13 +211,13 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .c-fill{fill:none;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;}
 .c-pct{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-anchor:middle;dominant-baseline:central;}
 .circ-lbl{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:rgba(160,140,100,0.55);text-align:center;}
-.circ-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(30,20,10,0.92);color:#FFF;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;padding:6px 15px;border-radius:5px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.15s;z-index:9999;}
+.circ-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(30,20,10,0.92);color:#FFF;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:400;padding:6px 15px;border-radius:5px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.15s;z-index:9999;}
 .circ-wrap:hover .circ-tip{opacity:1;}
 
 /* SPARKLINE */
 .spark-outer{flex-shrink:0;width:48%;height:88px;align-self:center;display:block;overflow:visible;}
 .spark-outer svg{width:100%;height:100%;overflow:visible;display:block;}
-.sp-tip{position:fixed;background:rgba(30,20,10,0.92);color:#FFF;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;padding:6px 15px;border-radius:5px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.12s;z-index:99999;}
+.sp-tip{position:fixed;background:rgba(30,20,10,0.92);color:#FFF;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:400;padding:6px 15px;border-radius:5px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.12s;z-index:99999;}
 
 /* TEMPLATE C */
 .card-c{height:var(--h-c);padding:12px 15px 12px;display:flex;flex-direction:column;background:var(--card-bg-alt);}
@@ -242,6 +242,9 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .csat-ph span{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;color:rgba(200,185,160,0.5);letter-spacing:5px;}
 .csat-ph small{font-size:8px;color:var(--txt-faint);font-style:italic;}
 
+.card.line-l1:hover .c-val{color:#3D6490;}
+.card.line-l2:hover .c-val{color:#2E6644;}
+.card.line-l3:hover .c-val{color:#6B4E10;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
 
 /* ── EFEITOS HOVER ── */
@@ -300,9 +303,9 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
     <div class="h-kpis-wrap">
       <div class="h-resumo-lbl" id="h-resumo-lbl">Resumo Fevereiro</div>
       <div class="h-kpis">
-      <div class="hk neu" id="hk-lit"><div class="hk-l">Litros</div><div class="hk-v" id="hv-lit">—</div><div class="hk-t neu" id="ht-lit">—</div></div>
-      <div class="hk neu" id="hk-rec"><div class="hk-l">Receita</div><div class="hk-v" id="hv-rec">—</div><div class="hk-t neu" id="ht-rec">—</div></div>
-      <div class="hk neu" id="hk-cv"><div class="hk-l">Conversão</div><div class="hk-v" id="hv-cv">—</div><div class="hk-t neu" id="ht-cv">orç→pedido</div></div>
+      <div class="hk neu" id="hk-lit"><div class="hk-l">Litros</div><div class="hk-v" id="hv-lit">—</div></div>
+      <div class="hk neu" id="hk-rec"><div class="hk-l">Receita</div><div class="hk-v" id="hv-rec">—</div></div>
+      <div class="hk neu" id="hk-cv"><div class="hk-l">Conversão</div><div class="hk-v" id="hv-cv">—</div></div>
     </div>
       </div>
     </div>
@@ -419,7 +422,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 
     <div class="card line-l3" data-s="none">
       <div class="card-ab" style="position:relative;">
-        <div class="c-header"><div class="c-title pill-l3">Ticket Médio / Pedido</div><div class="c-sub">Receita ÷ pedidos · variação semanal fev/26</div></div>
+        <div class="c-header"><div class="c-title pill-l3">Ticket Médio / Pedido</div><div class="c-sub">Receita ÷ pedidos + variação semanal</div></div>
         <div style="flex:1;display:flex;align-items:center;gap:0;">
           <div class="c-val-block" style="flex-shrink:0;z-index:2;">
             <div class="c-val" id="v-tp" style="font-size:36px;">—</div>
@@ -432,7 +435,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 
     <div class="card line-l3" data-s="none">
       <div class="card-ab" style="position:relative;">
-        <div class="c-header"><div class="c-title pill-l3">Ticket Médio / Litros</div><div class="c-sub">Volume médio por evento · variação semanal fev/26</div></div>
+        <div class="c-header"><div class="c-title pill-l3">Ticket Médio / Litros</div><div class="c-sub">Volume médio por evento + variação semanal</div></div>
         <div style="flex:1;display:flex;align-items:center;gap:0;">
           <div class="c-val-block" style="flex-shrink:0;z-index:2;">
             <div class="c-val" id="v-tl" style="font-size:36px;">—</div>
@@ -445,7 +448,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 
     <div class="card line-l3" data-s="none">
       <div class="card-ab" style="position:relative;">
-        <div class="c-header"><div class="c-title pill-l3">Receita / Litro</div><div class="c-sub">Yield médio de faturamento · variação semanal fev/26</div></div>
+        <div class="c-header"><div class="c-title pill-l3">Receita / Litro</div><div class="c-sub">Yield médio de faturamento + variação semanal</div></div>
         <div style="flex:1;display:flex;align-items:center;gap:0;">
           <div class="c-val-block" style="flex-shrink:0;z-index:2;">
             <div class="c-val" id="v-rl" style="font-size:36px;">—</div>
@@ -506,7 +509,7 @@ function circ(elId,pct,color,txt){
       transform="rotate(-90 ${CCX} ${CCY})"
       style="transition:stroke-dashoffset 0.9s cubic-bezier(0.4,0,0.2,1);"/>
     <text x="${CCX}" y="${CCY+5}"
-      font-family="Barlow Condensed,sans-serif" font-size="13" font-weight="800"
+      font-family="Barlow Condensed,sans-serif" font-size="13" font-weight="400"
       text-anchor="middle" fill="${color}">${txt}</text>
   </svg>`;
   requestAnimationFrame(()=>requestAnimationFrame(()=>{
@@ -520,14 +523,10 @@ function pl(r,m){return m?Math.round((r/m)*100)+'%':'—';}
 function setS(id,s){const c=document.getElementById(id);if(c&&!c.classList.contains('line-l1')&&!c.classList.contains('line-l2'))c.setAttribute('data-s',s);}
 function setTip(id,t){const c=document.getElementById(id);if(c)c.textContent=t;}
 function hkpi(bId,vId,tId,val,mr,fn){
-  const b=document.getElementById(bId),v=document.getElementById(vId),t=document.getElementById(tId);
-  if(!v||!t||!b)return;v.innerHTML=fn(val);
-  const s=mr?st(val,mr):'neu',d=mr?((val/mr-1)*100):0,sg=d>=0?'+':'';
-  const cls={green:'up',yellow:'warn',red:'down',neu:'neu',gray:'neu'};
-  const ar={green:'▲',yellow:'▼',red:'▼',neu:'—',gray:'→'};
-  t.className=`hk-t ${cls[s]||'neu'}`;
-  t.textContent=mr?`${ar[s]} ${sg}${Math.abs(d).toFixed(1)}% vs meta`:'—';
-  b.className=`hk ${s==='green'?'up':s==='yellow'?'warn':s==='red'?'down':'neu'}`;
+  const b=document.getElementById(bId),v=document.getElementById(vId);
+  if(!v||!b)return;
+  v.innerHTML=fn(val);
+  b.className='hk neu';
 }
 function mpr(mt,de,ate,resp){
   let m=mt;if(resp&&PART[resp])m=mt*PART[resp];
@@ -727,7 +726,6 @@ function go(){
   hkpi('hk-lit','hv-lit','ht-lit',tLit,mrL,v=>fmt(Math.round(v))+'<span class="u"> L</span>');
   hkpi('hk-rec','hv-rec','ht-rec',tRec,mrR,v=>'R$'+Math.round(v/1000)+'k');
   document.getElementById('hv-cv').textContent=tOrc?(tPed/tOrc*100).toFixed(1)+'%':'—';
-  document.getElementById('ht-cv').textContent='orç→pedido';
   // h-sub removido
   const MESES=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
   const deDate=new Date(de+'T12:00:00');
