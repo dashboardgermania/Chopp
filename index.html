@@ -57,6 +57,29 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 
 /* FILTROS */
 .filters-wrap{background:#DFD0B0;border-bottom:none;box-shadow:none;margin-top:0;margin-bottom:0;width:100%;}
+
+/* ABAS */
+.tabs-wrap{background:var(--red);width:100%;border-top:1px solid rgba(255,255,255,0.10);}
+.tabs{max-width:var(--mw);margin:0 auto;padding:0 var(--pad-h);display:flex;align-items:flex-end;gap:4px;}
+.tab{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.55);
+  padding:10px 20px 9px;
+  border-radius:6px 6px 0 0;
+  cursor:pointer;
+  border:1px solid transparent;
+  border-bottom:none;
+  transition:all 0.15s;
+  user-select:none;
+}
+.tab:hover{color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.08);}
+.tab.active{
+  background:#DFD0B0;
+  color:var(--red);
+  border-color:rgba(180,150,100,0.20);
+  font-weight:800;
+}
 .filters{max-width:var(--mw);margin:0 auto;padding:8px var(--pad-h);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .f-group{display:flex;align-items:center;gap:6px;}
 .f-lbl{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(60,30,10,0.60);white-space:nowrap;}
@@ -260,6 +283,13 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
     </div>
   </div>
 </header>
+<div class="tabs-wrap">
+  <div class="tabs">
+    <div class="tab active" onclick="setTab(this)">Visão Geral</div>
+    <div class="tab" onclick="setTab(this)">Atendimento EZ</div>
+    <div class="tab" onclick="setTab(this)">Metas</div>
+  </div>
+</div>
 <div class="filters-wrap">
   <div class="filters">
     <div class="f-group"><span class="f-lbl">Período</span><input type="date" class="f-input" id="f-de" value="2026-02-01" onchange="go()"><span class="f-sep">até</span><input type="date" class="f-input" id="f-ate" value="2026-02-28" onchange="go()"></div>
@@ -525,6 +555,10 @@ function setShortcut(type){
   document.querySelectorAll('.btn-sh').forEach(b=>b.classList.remove('active'));
   event.target.classList.add('active');
   go();
+}
+function setTab(el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
 }
 function go(){
   const de=document.getElementById('f-de').value;
