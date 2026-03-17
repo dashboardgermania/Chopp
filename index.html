@@ -207,7 +207,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 }
 .circ-wrap svg{display:block;transition:transform 0.2s;}
 .circ-wrap:hover svg{transform:scale(1.06);}
-.c-bg{fill:none;stroke:rgba(140,120,80,0.08);}
+.c-bg{fill:none;stroke:rgba(200,190,175,0.25);}
 .c-fill{fill:none;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;}
 .c-pct{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-anchor:middle;dominant-baseline:central;}
 .circ-lbl{font-family:'Barlow Condensed',sans-serif;font-size:9px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:rgba(160,140,100,0.55);text-align:center;}
@@ -670,7 +670,7 @@ function go(){
   hkpi('hk-rec','hv-rec','ht-rec',tRec,mrR,v=>'R$'+Math.round(v/1000)+'k');
   document.getElementById('hv-cv').textContent=tOrc?(tPed/tOrc*100).toFixed(1)+'%':'—';
   document.getElementById('ht-cv').textContent='orç→pedido';
-  document.getElementById('h-sub').textContent=`Filtro: ${resp||'Todos'} · ${fmt(tAt)} atend · ${fmt(tPed)} pedidos`;
+  // h-sub removido
   const MESES=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
   const deDate=new Date(de+'T12:00:00');
   const ateDate=new Date(ate+'T12:00:00');
