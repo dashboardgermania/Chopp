@@ -477,55 +477,38 @@ const SEM=['S1·03/02','S2·10/02','S3·17/02','S4·24/02'];
 const SC={green:'#1E7A42',yellow:'#966A00',red:'#B82418',gray:'#9BA8B0'};
 
 /* CÍRCULO — stroke 7px */
-const CR=40,CCX=50,CCY=50,CSZ=100,CCIRC=2*Math.PI*CR;
+const CR=34,CCX=46,CCY=46,CSZ=92,CCIRC=2*Math.PI*CR;
 function circ(elId,pct,color,txt){
   const el=document.getElementById(elId);if(!el)return;
   const cp=Math.min(Math.max(pct||0,0),100),off=CCIRC-(cp/100)*CCIRC;
-  el.innerHTML=`<svg width="${CSZ}" height="${CSZ}" viewBox="0 0 ${CSZ} ${CSZ}">
-    <circle class="c-bg"   cx="${CCX}" cy="${CCY}" r="${CR}" stroke-width="7"/>
-    <circle class="c-fill" cx="${CCX}" cy="${CCY}" r="${CR}" stroke="${color}" stroke-width="7"
+  const uid='g'+elId;
+  const cLight=color==='#9BA8B0'?'#D0D8DC':color==='#1E7A42'?'#6FD49A':color==='#966A00'?'#F5C050':color==='#B82418'?'#F08878':'#CCCCCC';
+  el.innerHTML=`<svg width="${CSZ}" height="${CSZ}" viewBox="0 0 ${CSZ} ${CSZ}" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="${uid}" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="${cLight}" stop-opacity="1"/>
+        <stop offset="100%" stop-color="${color}" stop-opacity="1"/>
+      </linearGradient>
+      <filter id="${uid}sh">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.15)"/>
+      </filter>
+    </defs>
+    <circle cx="${CCX}" cy="${CCY}" r="${CR+7}" fill="rgba(0,0,0,0.07)"/>
+    <circle cx="${CCX}" cy="${CCY}" r="${CR+5}" fill="white" filter="url(#${uid}sh)"/>
+    <circle cx="${CCX}" cy="${CCY}" r="${CR}" fill="none" stroke="rgba(180,165,140,0.20)" stroke-width="8"/>
+    <circle cx="${CCX}" cy="${CCY}" r="${CR}" fill="none"
+      stroke="url(#${uid})" stroke-width="8" stroke-linecap="round"
       stroke-dasharray="${CCIRC.toFixed(2)}" stroke-dashoffset="${CCIRC.toFixed(2)}"
-      style="transition:stroke-dashoffset 0.85s cubic-bezier(0.4,0,0.2,1);"/>
-    <text class="c-pct" x="${CCX}" y="${CCY}" font-size="11" fill="${color}">${txt}</text>
+      transform="rotate(-90 ${CCX} ${CCY})"
+      style="transition:stroke-dashoffset 0.9s cubic-bezier(0.4,0,0.2,1);"/>
+    <text x="${CCX}" y="${CCY+5}"
+      font-family="Barlow Condensed,sans-serif" font-size="13" font-weight="800"
+      text-anchor="middle" fill="${color}">${txt}</text>
   </svg>`;
   requestAnimationFrame(()=>requestAnimationFrame(()=>{
-    const f=el.querySelector('.c-fill');if(f)f.style.strokeDashoffset=off.toFixed(2);
+    const f=el.querySelector('circle[transform]');
+    if(f)f.style.strokeDashoffset=off.toFixed(2);
   }));
-}
-
-/* SPARKLINE */
-function spark(id,vals,labs,fmtFn){
-  const wrap=document.getElementById(id);if(!wrap)return;
-  wrap.innerHTML='';
-  const W=wrap.offsetWidth||200,H=72;
-  const pL=8,pR=8,pT=14,pB=14,uW=W-pL-pR,uH=H-pT-pB,n=vals.length;
-  const valid=vals.filter(v=>v>0);if(!valid.length)return;
-  const mn=Math.min(...valid)*0.90,mx=Math.max(...valid)*1.06,rng=mx-mn||1;
-  const xs=vals.map((_,i)=>pL+(i/(n-1))*uW);
-  const ys=vals.map(v=>pT+uH-((v-mn)/rng)*uH);
-  const pts=xs.map((x,i)=>`${x.toFixed(1)},${ys[i].toFixed(1)}`).join(' ');
-  const area=`M${xs[0].toFixed(1)},${ys[0].toFixed(1)} ${xs.map((x,i)=>`L${x.toFixed(1)},${ys[i].toFixed(1)}`).join(' ')} L${xs[n-1].toFixed(1)},${(H-pB).toFixed(1)} L${xs[0].toFixed(1)},${(H-pB).toFixed(1)} Z`;
-  const vLbls=vals.map((v,i)=>{
-    const a=i===0?'start':i===n-1?'end':'middle';
-    return `<text x="${xs[i].toFixed(1)}" y="${(ys[i]-5).toFixed(1)}" text-anchor="${a}" font-family="Barlow Condensed,sans-serif" font-size="11" font-weight="400" fill="var(--sp-val)">${fmtFn(v)}</text>`;
-  }).join('');
-  const sLbls=labs.map((l,i)=>{
-    const a=i===0?'start':i===n-1?'end':'middle';
-    return `<text x="${xs[i].toFixed(1)}" y="${(H-1).toFixed(1)}" text-anchor="${a}" font-family="Barlow Condensed,sans-serif" font-size="10.5" font-weight="400" fill="var(--txt-faint)">${l.split('·')[0].trim()}</text>`;
-  }).join('');
-  const dots=vals.map((v,i)=>`<circle class="sd" cx="${xs[i].toFixed(1)}" cy="${ys[i].toFixed(1)}" r="3" fill="var(--sp-dot)" stroke="#FFF" stroke-width="1.5" style="cursor:pointer;transition:r 0.12s;" data-v="${fmtFn(v)}" data-l="${labs[i].split('·')[0].trim()}"/>`).join('');
-  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
-  svg.setAttribute('viewBox',`0 -2 ${W} ${H+4}`);
-  svg.setAttribute('width','100%');svg.setAttribute('height','100%');svg.style.overflow='visible';
-  svg.innerHTML=`<path d="${area}" fill="var(--sp-area)"/>
-    <polyline points="${pts}" fill="none" stroke="var(--sp-line)" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
-    ${vLbls}${dots}${sLbls}`;
-  const tip=document.createElement('div');tip.className='sp-tip';
-  wrap.appendChild(tip);wrap.appendChild(svg);
-  svg.querySelectorAll('.sd').forEach(d=>{
-    d.addEventListener('mouseenter',()=>{d.setAttribute('r','5');tip.textContent=d.dataset.l+': '+d.dataset.v;tip.style.left=(parseFloat(d.getAttribute('cx'))/W*100)+'%';tip.style.opacity='1';});
-    d.addEventListener('mouseleave',()=>{d.setAttribute('r','3');tip.style.opacity='0';});
-  });
 }
 
 function st(r,m){if(!m)return'gray';const p=(r/m)*100;return p>=100?'green':p>=70?'yellow':'red';}
