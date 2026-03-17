@@ -195,7 +195,6 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
   white-space:nowrap;
 }
 .bezel.warm,.bezel.neu{background:transparent;color:#9A9A9A;border:none;}
-.spark-svg{flex-shrink:0;width:46%;height:88px;display:block;overflow:visible;}
 
 /* CÍRCULO — centralizado, stroke 7px */
 .circ-wrap{
@@ -418,42 +417,46 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 
   <!-- ROW 3 — sparklines -->
   <div class="row">
+
     <div class="card line-l3" data-s="none">
-      <div class="card-ab">
+      <div class="card-ab" style="position:relative;overflow:hidden;">
         <div class="c-header"><div class="c-title pill-l3">Ticket Médio / Pedido</div><div class="c-sub">Receita ÷ pedidos · variação semanal fev/26</div></div>
-        <div class="c-center">
-          <div class="c-val-block">
+        <div style="flex:1;display:flex;align-items:center;gap:0;">
+          <div class="c-val-block" style="flex-shrink:0;z-index:2;">
             <div class="c-val" id="v-tp" style="font-size:36px;">—</div>
             <span class="bezel neu" id="bz-tp">—</span>
           </div>
-          <svg id="sp-tp" class="spark-svg" viewBox="0 0 220 100"></svg>
+          <div id="sp-tp" style="position:absolute;right:0;top:0;bottom:0;width:52%;"></div>
         </div>
       </div>
     </div>
+
     <div class="card line-l3" data-s="none">
-      <div class="card-ab">
+      <div class="card-ab" style="position:relative;overflow:hidden;">
         <div class="c-header"><div class="c-title pill-l3">Ticket Médio / Litros</div><div class="c-sub">Volume médio por evento · variação semanal fev/26</div></div>
-        <div class="c-center">
-          <div class="c-val-block">
+        <div style="flex:1;display:flex;align-items:center;gap:0;">
+          <div class="c-val-block" style="flex-shrink:0;z-index:2;">
             <div class="c-val" id="v-tl" style="font-size:36px;">—</div>
             <span class="bezel neu" id="bz-tl">—</span>
           </div>
-          <svg id="sp-tl" class="spark-svg" viewBox="0 0 220 100"></svg>
+          <div id="sp-tl" style="position:absolute;right:0;top:0;bottom:0;width:52%;"></div>
         </div>
       </div>
     </div>
+
     <div class="card line-l3" data-s="none">
-      <div class="card-ab">
+      <div class="card-ab" style="position:relative;overflow:hidden;">
         <div class="c-header"><div class="c-title pill-l3">Receita / Litro</div><div class="c-sub">Yield médio de faturamento · variação semanal fev/26</div></div>
-        <div class="c-center">
-          <div class="c-val-block">
+        <div style="flex:1;display:flex;align-items:center;gap:0;">
+          <div class="c-val-block" style="flex-shrink:0;z-index:2;">
             <div class="c-val" id="v-rl" style="font-size:36px;">—</div>
             <span class="bezel neu" id="bz-rl">—</span>
           </div>
-          <svg id="sp-rl" class="spark-svg" viewBox="0 0 220 100"></svg>
+          <div id="sp-rl" style="position:absolute;right:0;top:0;bottom:0;width:52%;"></div>
         </div>
       </div>
     </div>
+
   </div>
 
   <!-- ROW 4 — CSAT -->
@@ -571,29 +574,65 @@ function setTab(el){
   el.classList.add('active');
 }
 /* ── SPARKLINE ── */
-function spark(id, vals, labs, fmtFn) {
-  const svg = document.getElementById(id);
-  if (!svg) return;
-  const W=220, H=100, pL=10, pR=10, pT=18, pB=16;
-  const uW=W-pL-pR, uH=H-pT-pB, n=vals.length;
-  const valid=vals.filter(v=>v>0);
-  if(!valid.length) return;
-  const mn=Math.min(...valid)*0.90, mx=Math.max(...valid)*1.08, rng=mx-mn||1;
+function spark(id,vals,labs,fmtFn){
+  const wrap=document.getElementById(id);if(!wrap)return;
+  wrap.innerHTML='';
+  const W=wrap.offsetWidth||220;
+  const H=wrap.offsetHeight||120;
+  const pL=8,pR=12,pT=20,pB=20,uW=W-pL-pR,uH=H-pT-pB,n=vals.length;
+  const valid=vals.filter(v=>v>0);if(!valid.length)return;
+  const mn=Math.min(...valid)*0.88,mx=Math.max(...valid)*1.08,rng=mx-mn||1;
   const xs=vals.map((_,i)=>pL+(i/(n-1))*uW);
   const ys=vals.map(v=>pT+uH-((v-mn)/rng)*uH);
   const pts=xs.map((x,i)=>`${x.toFixed(1)},${ys[i].toFixed(1)}`).join(' ');
-  const aD=`M${xs[0].toFixed(1)},${ys[0].toFixed(1)} ${xs.map((x,i)=>`L${x.toFixed(1)},${ys[i].toFixed(1)}`).join(' ')} L${xs[n-1].toFixed(1)},${H-pB} L${xs[0].toFixed(1)},${H-pB} Z`;
-  const dc=vals.map((v,i)=>i===0?'#9BA8B0':v>=vals[i-1]?'#1E7A42':'#B82418');
-  const vl=vals.map((v,i)=>{
+  const area=`M${xs[0].toFixed(1)},${ys[0].toFixed(1)} ${xs.map((x,i)=>`L${x.toFixed(1)},${ys[i].toFixed(1)}`).join(' ')} L${xs[n-1].toFixed(1)},${(H-pB).toFixed(1)} L${xs[0].toFixed(1)},${(H-pB).toFixed(1)} Z`;
+
+  const dotColors=vals.map((v,i)=>i===0?'#9BA8B0':v>=vals[i-1]?'#1E7A42':'#B82418');
+
+  const vLbls=vals.map((v,i)=>{
     const a=i===0?'start':i===n-1?'end':'middle';
-    return `<text x="${xs[i].toFixed(1)}" y="${(ys[i]-6).toFixed(1)}" text-anchor="${a}" font-family="Barlow Condensed,sans-serif" font-size="10" font-weight="600" fill="${dc[i]}">${fmtFn(v)}</text>`;
+    return `<text x="${xs[i].toFixed(1)}" y="${(ys[i]-7).toFixed(1)}" text-anchor="${a}"
+      font-family="Barlow Condensed,sans-serif" font-size="11" font-weight="600"
+      fill="${dotColors[i]}">${fmtFn(v)}</text>`;
   }).join('');
-  const sl=labs.map((l,i)=>{
+
+  const sLbls=labs.map((l,i)=>{
     const a=i===0?'start':i===n-1?'end':'middle';
-    return `<text x="${xs[i].toFixed(1)}" y="${H-2}" text-anchor="${a}" font-family="Barlow Condensed,sans-serif" font-size="9" font-weight="400" fill="#A89870">${l.split('·')[0].trim()}</text>`;
+    return `<text x="${xs[i].toFixed(1)}" y="${(H-4).toFixed(1)}" text-anchor="${a}"
+      font-family="Barlow Condensed,sans-serif" font-size="10" font-weight="400"
+      fill="#A89870">${l.split('·')[0].trim()}</text>`;
   }).join('');
-  const dt=vals.map((v,i)=>`<circle cx="${xs[i].toFixed(1)}" cy="${ys[i].toFixed(1)}" r="4" fill="${dc[i]}" stroke="white" stroke-width="1.5"/>`).join('');
-  svg.innerHTML=`<path d="${aD}" fill="rgba(180,160,120,0.10)"/><polyline points="${pts}" fill="none" stroke="#C4B89A" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>${vl}${dt}${sl}`;
+
+  const dots=vals.map((v,i)=>`<circle class="sd"
+    cx="${xs[i].toFixed(1)}" cy="${ys[i].toFixed(1)}"
+    r="4" fill="${dotColors[i]}" stroke="white" stroke-width="2"
+    style="cursor:pointer;transition:r 0.15s;"
+    data-v="${fmtFn(v)}" data-l="${labs[i].split('·')[0].trim()}"/>`).join('');
+
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  svg.setAttribute('width','100%');svg.setAttribute('height','100%');
+  svg.style.display='block';
+  svg.innerHTML=`
+    <path d="${area}" fill="rgba(180,160,120,0.08)"/>
+    <polyline points="${pts}" fill="none" stroke="#C4B89A" stroke-width="1.8"
+      stroke-linejoin="round" stroke-linecap="round"/>
+    ${vLbls}${dots}${sLbls}`;
+
+  const tip=document.createElement('div');
+  tip.className='sp-tip';
+  wrap.style.position='relative';
+  wrap.appendChild(tip);wrap.appendChild(svg);
+
+  svg.querySelectorAll('.sd').forEach(d=>{
+    d.addEventListener('mouseenter',()=>{
+      d.setAttribute('r','6');
+      tip.textContent=d.dataset.l+': '+d.dataset.v;
+      tip.style.left=(parseFloat(d.getAttribute('cx'))/W*100)+'%';
+      tip.style.opacity='1';
+    });
+    d.addEventListener('mouseleave',()=>{d.setAttribute('r','4');tip.style.opacity='0';});
+  });
 }
 
 
@@ -671,9 +710,11 @@ function go(){
     const p=v.length,l=v.reduce((a,d)=>a+(d.Litragem_num||0),0),r=v.reduce((a,d)=>a+(d['Valor Único']||0),0);
     spP.push(p?r/p:0);spL.push(p?l/p:0);spR.push(l?r/l:0);
   });
+  requestAnimationFrame(()=>{
     spark('sp-tp',spP,SEM,fR);
-  spark('sp-tl',spL,SEM,fL);
-  spark('sp-rl',spR,SEM,v=>'R$'+v.toFixed(2).replace('.',','));,50);
+    spark('sp-tl',spL,SEM,fL);
+    spark('sp-rl',spR,SEM,v=>'R$'+v.toFixed(2).replace('.',','));
+  });
 
   // Header
   hkpi('hk-lit','hv-lit','ht-lit',tLit,mrL,v=>fmt(Math.round(v))+'<span class="u"> L</span>');
