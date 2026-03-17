@@ -128,7 +128,6 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
   display:flex;
   flex-direction:column;
   position:relative;
-  overflow:hidden;
 }
 .c-header{flex-shrink:0;}
 .c-title{
@@ -218,7 +217,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 /* SPARKLINE */
 .spark-outer{flex-shrink:0;width:48%;height:88px;align-self:center;display:block;overflow:visible;}
 .spark-outer svg{width:100%;height:100%;overflow:visible;display:block;}
-.sp-tip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(30,20,10,0.92);color:#FFF;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;padding:6px 15px;border-radius:5px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.12s;z-index:9999;}
+.sp-tip{position:fixed;background:rgba(30,20,10,0.92);color:#FFF;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:600;padding:6px 15px;border-radius:5px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity 0.12s;z-index:99999;}
 
 /* TEMPLATE C */
 .card-c{height:var(--h-c);padding:12px 15px 12px;display:flex;flex-direction:column;background:var(--card-bg-alt);}
@@ -419,7 +418,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
   <div class="row">
 
     <div class="card line-l3" data-s="none">
-      <div class="card-ab" style="position:relative;overflow:hidden;">
+      <div class="card-ab" style="position:relative;">
         <div class="c-header"><div class="c-title pill-l3">Ticket Médio / Pedido</div><div class="c-sub">Receita ÷ pedidos · variação semanal fev/26</div></div>
         <div style="flex:1;display:flex;align-items:center;gap:0;">
           <div class="c-val-block" style="flex-shrink:0;z-index:2;">
@@ -432,7 +431,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
     </div>
 
     <div class="card line-l3" data-s="none">
-      <div class="card-ab" style="position:relative;overflow:hidden;">
+      <div class="card-ab" style="position:relative;">
         <div class="c-header"><div class="c-title pill-l3">Ticket Médio / Litros</div><div class="c-sub">Volume médio por evento · variação semanal fev/26</div></div>
         <div style="flex:1;display:flex;align-items:center;gap:0;">
           <div class="c-val-block" style="flex-shrink:0;z-index:2;">
@@ -445,7 +444,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
     </div>
 
     <div class="card line-l3" data-s="none">
-      <div class="card-ab" style="position:relative;overflow:hidden;">
+      <div class="card-ab" style="position:relative;">
         <div class="c-header"><div class="c-title pill-l3">Receita / Litro</div><div class="c-sub">Yield médio de faturamento · variação semanal fev/26</div></div>
         <div style="flex:1;display:flex;align-items:center;gap:0;">
           <div class="c-val-block" style="flex-shrink:0;z-index:2;">
@@ -619,17 +618,25 @@ function spark(id,vals,labs,fmtFn){
       stroke-linejoin="round" stroke-linecap="round"/>
     ${vLbls}${dots}${sLbls}`;
 
+  // Remover tip anterior se existir
+  const oldTip=document.querySelector('.sp-tip[data-id="'+id+'"]');
+  if(oldTip)oldTip.remove();
   const tip=document.createElement('div');
-  tip.className='sp-tip';
+  tip.className='sp-tip';tip.dataset.id=id;
   wrap.style.position='relative';
-  wrap.appendChild(tip);wrap.appendChild(svg);
+  document.body.appendChild(tip);wrap.appendChild(svg);
 
   svg.querySelectorAll('.sd').forEach(d=>{
-    d.addEventListener('mouseenter',()=>{
+    d.addEventListener('mouseenter',(e)=>{
       d.setAttribute('r','6');
       tip.textContent=d.dataset.l+': '+d.dataset.v;
-      tip.style.left=(parseFloat(d.getAttribute('cx'))/W*100)+'%';
+      tip.style.left=(e.clientX+12)+'px';
+      tip.style.top=(e.clientY-32)+'px';
       tip.style.opacity='1';
+    });
+    d.addEventListener('mousemove',(e)=>{
+      tip.style.left=(e.clientX+12)+'px';
+      tip.style.top=(e.clientY-32)+'px';
     });
     d.addEventListener('mouseleave',()=>{d.setAttribute('r','4');tip.style.opacity='0';});
   });
