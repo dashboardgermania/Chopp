@@ -54,9 +54,10 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .hk-t.up{color:rgba(110,220,130,0.85);} .hk-t.down{color:rgba(255,120,110,0.85);}
 .hk-t.warn{color:rgba(255,205,70,0.85);} .hk-t.neu{color:rgba(255,255,255,0.28);}
 .accent-bar{height:3px;background:linear-gradient(90deg,var(--red-dk) 0%,var(--gold) 25%,var(--gold-lt) 50%,var(--gold) 75%,var(--red-dk) 100%);}
+.header-divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold-lt),var(--gold),var(--gold-lt),transparent);opacity:0.5;width:100%;}
 
 /* FILTROS */
-.filters-wrap{background:#9E2015;border-bottom:none;box-shadow:none;margin-top:0;margin-bottom:0;width:100%;}
+.filters-wrap{background:#6B1210;border-bottom:none;box-shadow:none;margin-top:0;margin-bottom:0;width:100%;}
 .filters{max-width:var(--mw);margin:0 auto;padding:8px var(--pad-h);display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
 .f-group{display:flex;align-items:center;gap:6px;}
 .f-lbl{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.55);white-space:nowrap;}
@@ -225,7 +226,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .row:nth-child(2) .card:nth-child(1){animation-delay:0.13s;} .row:nth-child(2) .card:nth-child(2){animation-delay:0.17s;} .row:nth-child(2) .card:nth-child(3){animation-delay:0.21s;}
 .row:nth-child(3) .card:nth-child(1){animation-delay:0.23s;} .row:nth-child(3) .card:nth-child(2){animation-delay:0.27s;} .row:nth-child(3) .card:nth-child(3){animation-delay:0.31s;}
 
-.footer-wrap{background:var(--red);margin-top:auto;width:100%;}.footer{text-align:right;padding:10px var(--pad-h);max-width:var(--mw);margin:0 auto;}
+.footer-wrap{background:#111111;margin-top:auto;width:100%;}.footer{text-align:right;padding:10px var(--pad-h);max-width:var(--mw);margin:0 auto;}
 .footer span{font-family:'Barlow Condensed',sans-serif;font-size:8px;color:rgba(255,255,255,0.55);letter-spacing:1.5px;text-transform:uppercase;}
 
 @media(min-width:1400px){
@@ -261,6 +262,7 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
     </div>
   </div>
 </header>
+<div class="header-divider"></div>
 <div class="filters-wrap">
   <div class="filters">
     <div class="f-group"><span class="f-lbl">Período</span><input type="date" class="f-input" id="f-de" value="2026-02-01" onchange="go()"><span class="f-sep">até</span><input type="date" class="f-input" id="f-ate" value="2026-02-28" onchange="go()"></div>
