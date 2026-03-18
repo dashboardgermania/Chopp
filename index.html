@@ -338,8 +338,8 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
       <button class="btn-sh" onclick="setShortcut('hoje')">Hoje</button>
     </div>
     <span class="f-pipe">|</span><div class="f-group"><span class="f-lbl">Responsável</span><select class="f-sel" id="f-resp" onchange="go()"><option value="">Todos</option><option>Taciana</option><option>Lídia</option><option>Raiza</option><option>Mirian</option><option>Marciano</option></select></div>
-    <div class="f-group"><span class="f-lbl">Status</span><select class="f-sel" id="f-est" onchange="go()"><option value="">Todos</option><option>Vendida</option><option>Perdida</option><option>Em Andamento</option></select></div>
-    <button class="btn-c" onclick="reset()">LIMPAR</button>
+    
+    <button class="btn-f" onclick="go()">FILTRAR</button><button class="btn-c" onclick="reset()">LIMPAR</button>
     <span class="f-upd">Atualizado em: 12/03/2026</span>
   </div>
 </div>
@@ -772,7 +772,7 @@ function reset(){
   document.getElementById('f-de').value=y+'-'+pad(m+1)+'-01';
   document.getElementById('f-ate').value=y+'-'+pad(m+1)+'-'+pad(lastDay);
   document.getElementById('f-resp').value='';
-  document.getElementById('f-est').value='';
+
   document.querySelectorAll('.btn-sh').forEach(b=>b.classList.remove('active'));
   go();
 }
