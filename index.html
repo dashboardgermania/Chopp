@@ -50,6 +50,9 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
 .hk-bar.yellow{background:#F5C050;}
 .hk-bar.red{background:#F08878;}
 .hk-bar.neu{background:rgba(255,255,255,0.30);}
+.hk-bar-footer{display:flex;justify-content:space-between;align-items:center;margin-top:3px;}
+.hk-bar-lbl{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.22);}
+.hk-bar-pct{font-family:'Barlow Condensed',sans-serif;font-size:8px;font-weight:600;color:rgba(255,255,255,0.35);}
 .hk.up::after{background:var(--s-green);opacity:0.7;} .hk.down::after{background:var(--s-red);opacity:0.7;}
 .hk.warn::after{background:#C89000;opacity:0.7;} .hk.neu::after{background:rgba(255,255,255,0.10);}
 .hk-l{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-bottom:4px;}
@@ -309,9 +312,9 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
     <div class="h-kpis-wrap">
       <div class="h-resumo-lbl" id="h-resumo-lbl">Resumo Fevereiro</div>
       <div class="h-kpis">
-      <div class="hk neu" id="hk-lit"><div class="hk-l">Litros</div><div class="hk-v" id="hv-lit">—</div><div class="hk-bar-wrap"><div class="hk-bar neu" id="hb-lit" style="width:0%"></div></div></div>
-      <div class="hk neu" id="hk-rec"><div class="hk-l">Receita</div><div class="hk-v" id="hv-rec">—</div><div class="hk-bar-wrap"><div class="hk-bar neu" id="hb-rec" style="width:0%"></div></div></div>
-      <div class="hk neu" id="hk-cv"><div class="hk-l">Conversão</div><div class="hk-v" id="hv-cv">—</div><div class="hk-bar-wrap"><div class="hk-bar neu" id="hb-cv" style="width:0%"></div></div></div>
+      <div class="hk neu" id="hk-lit"><div class="hk-l">Litros</div><div class="hk-v" id="hv-lit">—</div><div class="hk-bar-wrap"><div class="hk-bar neu" id="hb-lit" style="width:0%"></div></div><div class="hk-bar-footer"><span class="hk-bar-lbl">meta</span><span class="hk-bar-pct" id="hp-lit">0%</span></div></div>
+      <div class="hk neu" id="hk-rec"><div class="hk-l">Receita</div><div class="hk-v" id="hv-rec">—</div><div class="hk-bar-wrap"><div class="hk-bar neu" id="hb-rec" style="width:0%"></div></div><div class="hk-bar-footer"><span class="hk-bar-lbl">meta</span><span class="hk-bar-pct" id="hp-rec">0%</span></div></div>
+      <div class="hk neu" id="hk-cv"><div class="hk-l">Conversão</div><div class="hk-v" id="hv-cv">—</div><div class="hk-bar-wrap"><div class="hk-bar neu" id="hb-cv" style="width:0%"></div></div><div class="hk-bar-footer"><span class="hk-bar-lbl">meta</span><span class="hk-bar-pct" id="hp-cv">0%</span></div></div>
     </div>
       </div>
     </div>
@@ -540,6 +543,8 @@ function hkpi(bId,vId,tId,val,mr,fn){
     const s=pct>=100?'green':pct>=70?'yellow':'red';
     bar.className='hk-bar '+s;
     requestAnimationFrame(()=>requestAnimationFrame(()=>{bar.style.width=pct.toFixed(1)+'%';}));
+    const pctEl=document.getElementById(barId.replace('hb-','hp-'));
+    if(pctEl)pctEl.textContent=pct.toFixed(0)+'%';
   }
   b.className='hk neu';
 }
@@ -747,6 +752,8 @@ function go(){
     const s=cvPct>=50?'green':cvPct>=30?'yellow':'red';
     cvBar.className='hk-bar '+s;
     requestAnimationFrame(()=>requestAnimationFrame(()=>{cvBar.style.width=Math.min(cvPct,100).toFixed(1)+'%';}));
+    const cvPctEl=document.getElementById('hp-cv');
+    if(cvPctEl)cvPctEl.textContent=Math.min(cvPct,100).toFixed(0)+'%';
   }
   // h-sub removido
   const MESES=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
