@@ -551,7 +551,7 @@ let EZ_PROTO = [];
 
 /* ── PARSER CSV ── */
 function parseCSV(text, sep=',') {
-  const lines = text.trim().split('\n');
+  const lines = text.trim().split(/\r?\n/);
   // Detectar e pular linha "sep=..."
   const start = lines[0].startsWith('sep=') ? 1 : 0;
   const headers = lines[start].split(sep).map(h => h.replace(/^"|"$/g,'').trim());
@@ -590,7 +590,7 @@ function processEZ(rows) {
 
   // Filtrar humano e converter datas
   const humanos = rows
-    .filter(r => r['Tipo'] === 'Humano')
+    .filter(r => (r['Tipo']||'').trim() === 'Humano')
     .map(r => ({
       ...r,
       _date: new Date(r['Criado em'].replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$3-$2-$1')),
@@ -646,7 +646,7 @@ function processRD(rows) {
     'Gabriel Costa': 'Gabriel'
   };
   return rows
-    .filter(r => r['Funil de vendas'] === '*Vendas Varejo B2C')
+    .filter(r => (r['Funil de vendas']||'').trim() === '*Vendas Varejo B2C')
     .map(r => {
       const d = r['Data de criação'];
       let dataStr = '';
@@ -739,6 +739,10 @@ async function loadData() {
   } catch(e) {
     console.warn('Erro ao carregar dados:', e);
   }
+  console.log('RD carregado:', RD.length, 'registros');
+  console.log('EZ_PROTO carregado:', EZ_PROTO.length, 'registros');
+  console.log('METAS_DATA carregado:', METAS_DATA.length, 'registros');
+  console.log('ALC carregado:', ALC, 'leads');
   setLoading(false);
   go();
 }
@@ -1123,7 +1127,7 @@ function go(){
   const resp=document.getElementById('f-resp').value;
 
   const rdB=RD.filter(d=>{if(de&&d.DataStr<de)return false;if(ate&&d.DataStr>ate)return false;if(resp&&d.Resp!==resp)return false;return true;});
-  const ez=EZ.filter(d=>{if(de&&d.DataStr<de)return false;if(ate&&d.DataStr>ate)return false;if(resp&&d.Agente!==resp)return false;return true;});
+  const ez=EZ_PROTO.filter(d=>{if(de&&d.DataStr<de)return false;if(ate&&d.DataStr>ate)return false;if(resp&&d.Agente!==resp)return false;return true;});
 
   const orcs=rdB.filter(d=>ORC_ETAPAS.includes(d.Etapa)&&d['Valor Único']>0);
   const vend=rdB.filter(d=>d.Estado==='Vendida');
