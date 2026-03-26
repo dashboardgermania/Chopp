@@ -540,8 +540,8 @@ body{font-family:'Barlow',sans-serif;background:var(--page-bg);color:var(--grafi
    CONFIGURAÇÃO — URLs do Google Sheets
    Publicar cada aba: Arquivo → Publicar na web → CSV
 ══════════════════════════════════════════ */
-const SHEETS_URL_RD  = ''; // Cole aqui a URL da aba RD
-const SHEETS_URL_EZ  = ''; // Cole aqui a URL da aba EZ
+const SHEETS_URL_RD  = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS69WfTMMD5rXrETJATYKq-jBHIE414MjLwEgRdgB_o-ncM5bmWIF_5URzpXeWwY4j49IyflTSrDifw/pub?gid=390115291&single=true&output=csv'; // Cole aqui a URL da aba RD
+const SHEETS_URL_EZ  = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vS69WfTMMD5rXrETJATYKq-jBHIE414MjLwEgRdgB_o-ncM5bmWIF_5URzpXeWwY4j49IyflTSrDifw/pub?gid=880773931&single=true&output=csv'; // Cole aqui a URL da aba EZ
 const SHEETS_URL_ALC  = ''; // Cole aqui a URL da aba Alcance
 const SHEETS_URL_METAS = ''; // Cole aqui a URL da aba Metas
 
@@ -731,7 +731,7 @@ async function loadData() {
     const promises = [];
     if (SHEETS_URL_RD)    promises.push(fetch(SHEETS_URL_RD).then(r=>r.text()).then(t=>{ RD = processRD(parseCSV(t,',')); calcPart(); }));
     else RD = [];
-    if (SHEETS_URL_EZ)    promises.push(fetch(SHEETS_URL_EZ).then(r=>r.text()).then(t=>{ EZ_PROTO = processEZ(parseCSV(t,';')); }));
+    if (SHEETS_URL_EZ)    promises.push(fetch(SHEETS_URL_EZ).then(r=>r.text()).then(t=>{ EZ_PROTO = processEZ(parseCSV(t,',')); }));
     else EZ_PROTO = [];
     if (SHEETS_URL_ALC)   promises.push(fetch(SHEETS_URL_ALC).then(r=>r.text()).then(t=>{ ALC = processALC(parseCSV(t,',')); }));
     if (SHEETS_URL_METAS) promises.push(fetch(SHEETS_URL_METAS).then(r=>r.text()).then(t=>{ METAS_DATA = processMetas(parseCSV(t,',')); }));
